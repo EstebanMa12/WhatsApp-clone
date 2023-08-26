@@ -1,0 +1,48 @@
+{
+  "name": "js_vanilla_wpp_web",
+  "version": "0.0.1",
+  "description": "Responsive whatsapp web with vanilla js, built on webpack and babel, styled with SASS, JSON-server database deployed on railway.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack --config webpack.config.js --mode production",
+    "serve": "npm run build && npx serve dist"
+  },
+  "keywords": [
+    "javascript",
+    "js",
+    "json-server",
+    "webpack",
+    "babel",
+    "sass",
+    "railway",
+    "gh-pages",
+    "whatsapp web",
+    "chat app",
+    "real-time chat app",
+    "full stack app"
+  ],
+  "author": "Vega de la Lyra <lyradeperseo@gmail.com> (https://www.linkedin.com/in/vegadelalyra/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
+    "@babel/preset-env": "^7.18.0",
+    "axios": "^1.4.0",
+    "babel-loader": "^8.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss-loader": "^7.0.0",
+    "postcss-preset-env": "^7.6.0",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "html-loader": "^4.2.0"
+  }
+}
