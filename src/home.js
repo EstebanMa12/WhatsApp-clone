@@ -1,4 +1,4 @@
-import HomeTemplate from '../public/templates/_Home.html'
+import HomeTemplate from '../public/templates/Home.html'
 
 document.querySelector('#root').innerHTML = HomeTemplate
 document.querySelector('button').onclick = () => {

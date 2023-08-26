@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -14,19 +15,112 @@ body {
   background: #ccc;
 }
 
+button {
+  cursor: pointer;
+}
+
 .main__container {
-  border: 1px solid black;
+  border: 1px solid blue;
 }
 .main__container__background {
   position: absolute;
   top: 0;
   width: 100%;
   height: 20%;
-  background-color: #009688;
+  background-color: #00A884;
 }
 
-button {
+.chats__header {
+  border: 1px solid yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+.chats__header__name {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #000;
+}
+.chats__container {
+  /* border: 2px solid red  */
+  position: relative;
+  overflow-y: auto;
+  background-color: #fff;
+}
+.chats__user-second {
+  /* border: 3px solid green */
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  padding: 15px;
+  border-bottom: 1p solid #eee;
+}
+.chats__user__image {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.chats__details {
+  width: 100%;
+  margin-left: 10px;
+}
+.chats__details__username {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+.chats__details__username h4 {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #000;
+}
+.chats__details__username p {
+  color: #aaa;
+  font-size: 0.9em;
+  overlay: hidden;
+}
+.chats__details__textMessage {
+  display: flex;
+}
+.chats__details__textMessage b {
+  background: #00A884;
+  color: #fff;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  /*   text-align: center; */
+  font-size: 0.9em;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__container {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+}
+
+.search__input input {
+  width: 121%;
+  outline: none;
+  border: none;
+  background: #fff;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 12px;
+  padding-left: 60px;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
