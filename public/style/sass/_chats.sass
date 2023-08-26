@@ -1,12 +1,18 @@
 @use 'variables' as var
+@use 'mixins'
 
 .chats
+    border: 3px solid red 
+    width: 30%
     &__header
         // border: 1px solid yellow
         display: flex
         flex-direction: column
         justify-content: space-between
         padding: 10px
+        background-color: var.$base_green
+        &__img
+            @include mixins.image-mixin(50px)
         &__name
             font-size: 1.2em
             font-weight: 600
@@ -25,13 +31,9 @@
             align-items: center
             cursor: pointer
             padding: 15px
-            border-bottom: 1p solid #eee
+            border-bottom: 1px solid #eee
         &__image
-            position: relative
-            width: 50px
-            height: 50px
-            overflow: hidden
-            border-radius: 50%
+            @include mixins.image-mixin(50px)
 
     &__details
         width: 100%
@@ -51,7 +53,9 @@
                 overlay: hidden
 
         &__textMessage 
+            // border: 1px solid red
             display: flex
+            justify-content: space-between
             b
                 background: var.$base_green
                 color: #fff
