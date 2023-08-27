@@ -6,3 +6,12 @@
     overflow: hidden
     border-radius: 50%
     cursor: pointer
+@mixin message-mixin($color,$orientation,$align)
+    max-width: 50%
+    word-wrap: break-word
+    margin: 10px 0
+    padding: 10px
+    border-radius: 8px
+    background: $color
+    text-align: $orientation
+    align-self: $align
