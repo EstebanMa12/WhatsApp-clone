@@ -21,7 +21,7 @@ button {
 
 .main__container {
   position: relative;
-  width: 1296px;
+  min-width: 120vh;
   max-width: 100%;
   height: calc(100vh - 40px);
   display: flex;
@@ -222,7 +222,7 @@ button {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   .webchat {
     display: inline;
   }
@@ -313,7 +313,6 @@ a {
 }
 .signup-form__label {
   margin-top: 10px;
-  font-weight: bold;
   color: #333;
 }
 .signup-form__input {
@@ -324,9 +323,9 @@ a {
   width: 100%;
 }
 .signup-form__input[type=number] {
-  -moz-appearance: textfield;
   -webkit-appearance: textfield;
   margin: 0;
+  -moz-appearance: textfield;
 }
 .signup-form__input:focus {
   outline: none;
