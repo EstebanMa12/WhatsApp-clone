@@ -287,4 +287,65 @@ a {
   font-size: 12px;
 }
 
+.signup {
+  display: flex;
+  flex-direction: column;
+}
+.signup-container {
+  display: flex;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.signup-container__title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ff0000;
+  margin-bottom: 20px;
+}
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+.signup-form__label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+.signup-form__input {
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+.signup-form__input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  margin: 0;
+}
+.signup-form__input:focus {
+  outline: none;
+  border: 1px solid #00A884;
+}
+.signup-form__button {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #00A884;
+  border-radius: 4px;
+  width: 100%;
+  background-color: #00A884;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+.signup-form__button:hover {
+  background-color: #009688;
+  border: 1px solid #009688;
+}
+
 /*# sourceMappingURL=style.css.map */

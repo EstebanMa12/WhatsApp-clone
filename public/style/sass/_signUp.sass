@@ -1,0 +1,53 @@
+@use 'variables' as var
+@use 'mixins'
+
+.signup
+  display: flex
+  flex-direction: column
+  &-container
+    display: flex
+    max-width: 400px
+    margin: 0 auto
+    padding: 20px
+    background-color: #fff
+    border-radius: 5px
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+    &__title
+      text-align: center
+      font-size: 20px
+      font-weight: 500
+      color: var.$base_red
+      margin-bottom: 20px
+  &-form
+    display: flex
+    flex-direction: column
+    &__label
+      margin-top: 10px
+      font-weight: bold 
+      color:#333
+    &__input
+      margin-top: 5px
+      padding: 10px
+      border: 1px solid var.$base_gray_dark
+      border-radius: 4px
+      width: 100%
+      &[type="number"]
+        -moz-appearance: textfield
+        -webkit-appearance: textfield
+        margin: 0
+      &:focus
+        outline: none
+        border: 1px solid var.$base_green
+    &__button
+      margin-top: 10px
+      padding: 10px
+      border: 1px solid var.$base_green
+      border-radius: 4px
+      width: 100%
+      background-color: var.$base_green
+      color: #fff
+      font-weight: 500
+      cursor: pointer
+      &:hover
+        background-color: var.$base_green_dark
+        border: 1px solid var.$base_green_dark
