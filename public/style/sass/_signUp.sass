@@ -5,7 +5,6 @@
   display: flex
   flex-direction: column
   &-container
-    display: flex
     max-width: 400px
     margin: 0 auto
     padding: 20px
@@ -19,8 +18,6 @@
       color: var.$base_red
       margin-bottom: 20px
   &-form
-    display: flex
-    flex-direction: column
     &__label
       margin-top: 10px
       color:#333
@@ -50,3 +47,12 @@
       &:hover
         background-color: var.$base_green_dark
         border: 1px solid var.$base_green_dark
+    &__textarea
+      margin-top: 5px
+      padding: 10px
+      border: 1px solid var.$base_gray_dark
+      border-radius: 4px
+      width: 100%
+      &:focus
+        outline: none
+        border: 1px solid var.$base_green

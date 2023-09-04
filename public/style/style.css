@@ -285,6 +285,7 @@ a {
   align-self: flex-end;
   margin-left: 160px;
   font-size: 12px;
+  margin-top: 5px;
 }
 
 .signup {
@@ -292,7 +293,6 @@ a {
   flex-direction: column;
 }
 .signup-container {
-  display: flex;
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -306,10 +306,6 @@ a {
   font-weight: 500;
   color: #ff0000;
   margin-bottom: 20px;
-}
-.signup-form {
-  display: flex;
-  flex-direction: column;
 }
 .signup-form__label {
   margin-top: 10px;
@@ -345,6 +341,17 @@ a {
 .signup-form__button:hover {
   background-color: #009688;
   border: 1px solid #009688;
+}
+.signup-form__textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+.signup-form__textarea:focus {
+  outline: none;
+  border: 1px solid #00A884;
 }
 
 /*# sourceMappingURL=style.css.map */
