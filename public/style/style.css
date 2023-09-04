@@ -21,7 +21,7 @@ button {
 
 .main__container {
   position: relative;
-  width: 1396px;
+  width: 1296px;
   max-width: 100%;
   height: calc(100vh - 40px);
   display: flex;
@@ -232,7 +232,6 @@ button {
   flex-direction: column;
 }
 .login__container {
-  border: 1px solid black;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -256,6 +255,11 @@ button {
   border-radius: 4px;
   width: 100%;
 }
+.login input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  margin: 0;
+}
 .login input:focus {
   outline: none;
   border: 1px solid #00A884;
@@ -274,6 +278,13 @@ button {
 .login button:hover {
   background-color: #009688;
   border: 1px solid #009688;
+}
+
+a {
+  text-align: right;
+  align-self: flex-end;
+  margin-left: 160px;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

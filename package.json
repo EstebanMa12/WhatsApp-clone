@@ -43,6 +43,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "html-loader": "^4.2.0"
+    "html-loader": "^4.2.0",
+    "nodejs": "^0.0.0"
   }
 }
