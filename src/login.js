@@ -9,8 +9,7 @@ const connectButton = document.querySelector('button')
 connectButton.onclick = handleConnectionAttempt
 
 function handleConnectionAttempt() {
-    const admin = document.querySelector('#admin_check').checked
-    if (admin) return createSession()
+    
 }
 
 // This function creates a session when
@@ -21,22 +20,11 @@ function createSession() {
 }
 
 if (devENV) {
-    const form  = document.createElement('form')
-    const input = document.createElement('input')
-    const label = document.createElement('label')
-    const div = document.createElement('div')
-
-    div.appendChild(input)
-    div.appendChild(label)
-    form.appendChild(div)
-
-    input.type = 'checkbox'
-    input.id = 'admin_check'
-    input.style.width = '10%'
+    const button = document.createElement('button')
     
-    label.htmlFor = 'admin_check'
-    label.innerText = 'Connect as an Admin'
-    label.style.fontSize = '16px'
+    button.innerText = 'Connect as an Admin'
+    button.style.backgroundColor = 'purple'
+    button.onclick = createSession    
 
-    connectButton.parentElement.appendChild(form)
+    connectButton.parentElement.appendChild(button)
 }
