@@ -357,7 +357,6 @@ a {
 .container_profile {
   display: none;
   width: 30%;
-  display: flex;
   flex-direction: column;
 }
 
