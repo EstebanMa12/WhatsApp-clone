@@ -4,7 +4,7 @@ console.log('HELLO FROM HOME.JS', root)
 
 root.innerHTML = HomeTemplate
 
-document.querySelector('button').onclick = () => {
+document.querySelector('.unregister-button').onclick = () => {
     localStorage.setItem('MAKAIAPP_session', false)
     window.location.href = '/'
 }

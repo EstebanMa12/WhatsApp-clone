@@ -7,6 +7,9 @@
 </head>
 <body>
     <main id="root"></main>
-    <script>const root = document.querySelector('#root')</script>
+    <script>
+        const devENV = window.location.href.substring(0,8).includes('http://')
+        const root = document.querySelector('#root')
+    </script>
 </body>
 </html>
