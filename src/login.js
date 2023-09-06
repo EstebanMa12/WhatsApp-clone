@@ -6,7 +6,16 @@ console.log('HELLO FROM LOGIN.JS')
 root.innerHTML = LoginTemplate
 const connectButton = document.querySelector('button')
 
-connectButton.onclick = () => {
+connectButton.onclick = handleConnectionAttempt
+
+function handleConnectionAttempt() {
+    const admin = document.querySelector('#admin_check').checked
+    if (admin) return createSession()
+}
+
+// This function creates a session when
+// user already exists or admin connects
+function createSession() {
     localStorage.setItem('MAKAIAPP_session', true)
     window.location.href = '/'
 }
