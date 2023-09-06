@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "html-loader": "^4.2.0",
+    "js_vanilla_wpp_web": "link:",
     "nodejs": "^0.0.0"
   }
 }
