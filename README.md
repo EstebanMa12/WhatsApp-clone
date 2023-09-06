@@ -5,10 +5,11 @@ styled with SASS,
 JSON-server database deployed on railway,
 deployed on github pages!
 
-## Where is the database hosted?
-On Railway with our overpowered JSON-SERVER serving us as a web-server consulted through our API.
+## Where is the database hosted?     
+On Railway with our overpowered JSON-SERVER serving us as a web-server consulted through our API.     
+
 THIS is the webserver!
-https://fake-wpp-db-production.up.railway.app/
+https://fake-wpp-db-production.up.railway.app/      
 There you can consult our endpoints (just to start, they are...[users, messages])
 
 ## How is the project built? 
