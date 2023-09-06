@@ -6,4 +6,4 @@ const USER_LOGGED = JSON.parse(localStorage.getItem('MAKAIAPP_session'))
 
 USER_LOGGED 
     ? import('./home')
-    : import('./login')
+    : import('./log/login')
