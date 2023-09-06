@@ -11,15 +11,16 @@ const loginForm        = document.querySelector('form')
 loginForm.onsubmit = event => handleConnectionAttempt(event)
 
 function handleConnectionAttempt(event) {
-    // Guard Clauses: if input is empty, ask a number; must have 10 characters
-    if (phoneNumberInput.value.length == 0) return // so the <required> pops up
-    if (phoneNumberInput.value.length < 10) return event.preventDefault()
     event.preventDefault()
+
+    // Guard Clauses: if input is empty, ask a number; must have 10 characters
+    // if (phoneNumberInput.value.length == 0) return // so the <required> pops up
+    if (phoneNumberInput.value.length < 10) return 
+
     // Gather given data by client on the form
     const formData = new FormData(loginForm)
     console.log(formData)
-
-    // createSession()
+    createSession()
 }
 
 // This function creates a session when
