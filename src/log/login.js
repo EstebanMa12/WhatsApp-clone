@@ -6,12 +6,20 @@ console.log('HELLO FROM LOGIN.JS')
 root.innerHTML         = LoginTemplate
 const phoneNumberInput = document.querySelector('input')  
 const connectButton    = document.querySelector('button')
+const loginForm        = document.querySelector('form')
 
-connectButton.onclick = event => handleConnectionAttempt(event)
+loginForm.onsubmit = event => handleConnectionAttempt(event)
 
 function handleConnectionAttempt(event) {
+    // Guard Clauses: if input is empty, ask a number; must have 10 characters
+    if (phoneNumberInput.value.length == 0) return // so the <required> pops up
     if (phoneNumberInput.value.length < 10) return event.preventDefault()
-    createSession()
+    event.preventDefault()
+    // Gather given data by client on the form
+    const formData = new FormData(loginForm)
+    console.log(formData)
+
+    // createSession()
 }
 
 // This function creates a session when

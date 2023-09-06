@@ -1,6 +1,6 @@
 import HomeTemplate from '../public/templates/Home.html'
 
-console.log('HELLO FROM HOME.JS', root)
+console.log('HELLO FROM HOME.JS')
 
 root.innerHTML = HomeTemplate
 
@@ -10,11 +10,11 @@ document.querySelector('.unregister-button').onclick = () => {
 }
 
 const change_profile = document.querySelector(".container_profile")
-const headerImg = document.querySelector(".chats__header__img");
+const headerImg = document.querySelector(".chats__header__img")
 const chats = document.querySelector(".chats")
 
 headerImg.onclick = () =>{
-    console.log("Se hizo click");
-    change_profile.style.display = "flex";
-    chats.style.display = "none";
+    console.log("Se hizo click")
+    change_profile.style.display = "flex"
+    chats.style.display = "none"
 }
