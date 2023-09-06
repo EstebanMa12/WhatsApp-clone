@@ -15,11 +15,19 @@ if (devENV) {
     const form  = document.createElement('form')
     const input = document.createElement('input')
     const label = document.createElement('label')
-    
-    form.appendChild(input)
-    form.appendChild(label)
+    const div = document.createElement('div')
+
+    div.appendChild(input)
+    div.appendChild(label)
+    form.appendChild(div)
+
     input.type = 'checkbox'
+    input.id = 'admin_check'
+    input.style.width = '10%'
+    
+    label.htmlFor = 'admin_check'
     label.innerText = 'Connect as an Admin'
+    label.style.fontSize = '16px'
 
     connectButton.parentElement.appendChild(form)
 }
