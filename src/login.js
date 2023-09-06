@@ -1,18 +1,15 @@
-// import Styles from 'styles.css'
-// const root = document.querySelector('#root')
-// document.head.appendChild(Styles)
 import LoginTemplate from '../public/templates/Login.html'
 import SignUpTemplate from '../public/templates/Sign_up.html'
 
-document.querySelector('#root').innerHTML = LoginTemplate
-document.querySelector(".signup").onclick =() => {
-    document.querySelector('#root').innerHTML = SignUpTemplate
-    document.querySelector(".signup-form__button").onclick =() => {
-        document.querySelector('#root').innerHTML = LoginTemplate
-    }
-}
+console.log('HELLO FROM LOGIN.JS')
 
-console.log('HELLO FROM LOGIN')
+root.innerHTML = LoginTemplate
+
+document.querySelector('.signup').onclick = () => {
+    root.innerHTML = SignUpTemplate
+    document.querySelector(".signup-form__button").onclick =() =>
+        root.innerHTML = LoginTemplate
+}
 
 document.querySelector('button').onclick = () => {
     localStorage.setItem('MAKAIAPP_session', true)
