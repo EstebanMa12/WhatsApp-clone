@@ -1,6 +1,6 @@
 import LoginTemplate from '../../public/templates/Login.html'
-import queryDBToAuthenticate from './DoesUserExist'
-import authPhoneWithSMSThroughFirebase from '../auth/auth'
+import queryDBToAuthenticate from '../db/server/DoesUserExist'
+import authPhoneWithSMSThroughFirebase from '../auth/firebaseSMSAuth'
 
 console.log('HELLO FROM LOGIN.JS')
 
@@ -22,13 +22,13 @@ async function handleConnectionAttempt(event) {
 
     // Evaluate whether phone number is already verified on system
     const userVerified = queryDBToAuthenticate(phoneNumber)
-    // if (await userVerified) return createSession()
-    // authPhoneWithSMSThroughFirebase(phoneNumber)
+    if (await userVerified) return createSession()
+    authPhoneWithSMSThroughFirebase(phoneNumber)
 }
 
 // This function creates a session when
 // user already exists or admin connects
-function createSession() {
+export function createSession() {
     localStorage.setItem('MAKAIAPP_session', true)
     window.location.href = '/'
 }
