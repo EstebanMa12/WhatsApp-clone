@@ -43,6 +43,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "firebase": "^10.3.1",
     "html-loader": "^4.2.0",
     "js_vanilla_wpp_web": "link:"
   }

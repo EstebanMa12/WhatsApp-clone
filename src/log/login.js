@@ -1,5 +1,6 @@
 import LoginTemplate from '../../public/templates/Login.html'
 import queryDBToAuthenticate from './DoesUserExist'
+import authPhoneWithSMSThroughFirebase from '../auth/auth'
 
 console.log('HELLO FROM LOGIN.JS')
 
@@ -17,12 +18,12 @@ async function handleConnectionAttempt(event) {
 
     // Gather given phone number by client on the form
     const formData = new FormData(loginForm)
-    const phoneNumber = formData.get('phone-number')
+    const phoneNumber = formData.get('phone')
 
     // Evaluate whether phone number is already verified on system
     const userVerified = queryDBToAuthenticate(phoneNumber)
-    if (await userVerified) return createSession()
-    import('../auth/auth')
+    // if (await userVerified) return createSession()
+    // authPhoneWithSMSThroughFirebase(phoneNumber)
 }
 
 // This function creates a session when

@@ -4,6 +4,7 @@ const ENDPOINT = API_URL + 'users/'
 
 async function queryDBToAuthenticate(phoneNumber) {
     try {
+        phoneNumber = phoneNumber.replace(/\D/g, '')
         const existingUser = await axios.get(ENDPOINT + phoneNumber)
         return existingUser.data.verified
     } catch {
