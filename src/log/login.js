@@ -1,5 +1,5 @@
 import LoginTemplate from '../../public/templates/Login.html'
-// import SignUpTemplate from '../public/templates/Sign_up.html'
+import queryDBToAuthenticate from './DoesUserExist'
 
 console.log('HELLO FROM LOGIN.JS')
 
@@ -10,17 +10,19 @@ const loginForm        = document.querySelector('form')
 
 loginForm.onsubmit = event => handleConnectionAttempt(event)
 
-function handleConnectionAttempt(event) {
+async function handleConnectionAttempt(event) {
     event.preventDefault()
 
-    // Guard Clauses: if input is empty, ask a number; must have 10 characters
-    // if (phoneNumberInput.value.length == 0) return // so the <required> pops up
     if (phoneNumberInput.value.length < 10) return 
 
-    // Gather given data by client on the form
+    // Gather given phone number by client on the form
     const formData = new FormData(loginForm)
-    console.log(formData)
-    createSession()
+    const phoneNumber = formData.get('phone-number')
+
+    // Evaluate whether phone number is already verified on system
+    const userVerified = queryDBToAuthenticate(phoneNumber)
+    if (await userVerified) return createSession()
+    import('../auth/auth')
 }
 
 // This function creates a session when
@@ -30,11 +32,10 @@ function createSession() {
     window.location.href = '/'
 }
 
-
 // if running on a localserver, dev environment
 // or any environment different to production,
 // render a "Connect as an Admin" button
-// to skip authentication logic 
+// to skip authentication logic test
 if (devENV) {
     const button = document.createElement('button')
     
