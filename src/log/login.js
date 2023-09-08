@@ -30,16 +30,10 @@ async function handleConnectionAttempt(event) {
 // This function creates a session when
 // user already exists or admin connects
 export async function createSession(phoneNumber) {
-    if (phoneNumber === 'ADMON') {
-        sessionStorage.setItem('makaiapp-session', 'ADMON')
-        return (window.location.href = '/')
-    }
-
-    await encode(phoneNumber)
-        .then(encodedPhoneNumber =>
-            sessionStorage.setItem('makaiapp-session', encodedPhoneNumber)
-        )
-        .finally(() => (window.location.href = '/'))
+    const sessionKey =
+        phoneNumber === 'ADMON' ? 'ADMON' : await encode(phoneNumber)
+    sessionStorage.setItem('makaiapp-session', sessionKey)
+    window.location.href = '/'
 }
 // if running on a localserver, dev environment
 // or any environment different to production,

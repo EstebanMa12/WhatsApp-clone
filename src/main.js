@@ -5,12 +5,12 @@ import isTrustedDevice from './db/server/isTrustedDevice'
 
 console.log('HELLO FROM MAIN.JS')
 
-const storedSession = sessionStorage.getItem('makaiapp-session')
-console.log(storedSession)
 const TRUSTED_DEVICE = await isTrustedDevice()
+
+const storedSession = sessionStorage.getItem('makaiapp-session')
 const USER_LOGGED =
     storedSession === 'ADMON'
         ? storedSession
         : await doesUserExist(await decode(storedSession))
 
-TRUSTED_DEVICE || USER_LOGGED ? import('./home') : import('./log/login')
+TRUSTED_DEVICE || USER_LOGGED ? import('./home/home') : import('./log/login')

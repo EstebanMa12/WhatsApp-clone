@@ -12,9 +12,14 @@
             id="root"
             aria-haspopup="dialog"></main>
         <script>
+            // Limit session time to 15 mins
+            // it lacks to program reset on count down if user is active.
+            setTimeout(() => sessionStorage.clear(), 1_000 * 60 * 15)
+
             const devENV = window.location.href
                 .substring(0, 8)
                 .includes('http://')
+
             const API_URL = 'https://fake-wpp-db-production.up.railway.app/'
             const root = document.querySelector('#root')
         </script>
