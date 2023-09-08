@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makaiapp</title>
-</head>
-<body>
-    <main id="root"></main>
-    <script>
-        const devENV = window.location.href.substring(0,8).includes('http://')
-        const API_URL = 'https://fake-wpp-db-production.up.railway.app/'
-        const root = document.querySelector('#root')
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>Makaiapp</title>
+    </head>
+    <body>
+        <main
+            id="root"
+            aria-haspopup="dialog"></main>
+        <script>
+            const devENV = window.location.href
+                .substring(0, 8)
+                .includes('http://')
+            const API_URL = 'https://fake-wpp-db-production.up.railway.app/'
+            const root = document.querySelector('#root')
+        </script>
+    </body>
 </html>

@@ -19,6 +19,11 @@ button {
   cursor: pointer;
 }
 
+::selection {
+  background-color: #009688;
+  color: white;
+}
+
 .main__container {
   position: relative;
   min-width: 120vh;
@@ -230,7 +235,6 @@ button {
 .login {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .login__container {
   background-color: #fff;
@@ -418,6 +422,80 @@ a {
   border-radius: 5px;
   cursor: pointer;
   margin-left: 35px;
+}
+
+.home__modal--container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.69);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.69);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-modal__trust {
+  background-image: linear-gradient(to bottom right, #add2d6, #3382b7);
+  height: min-content;
+  display: flex;
+  flex-flow: column;
+  border: 2px solid;
+  border-color: black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 69px;
+  font-size: 1.2rem;
+  transition: border-color 0.25s;
+}
+.home-modal__trust:hover {
+  border-color: blue;
+}
+.home-modal__title {
+  font-size: 2rem;
+}
+.home-modal__figure {
+  width: 300px;
+  height: 300px;
+}
+.home-modal__buttons {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  gap: 40px;
+}
+.home-modal__button--trust, .home-modal__button--no-trust {
+  font-size: 1rem;
+  padding: 12px;
+  min-width: 180px;
+  border-radius: 9px;
+  transition: all 0.25s;
+}
+.home-modal__button--trust:hover, .home-modal__button--no-trust:hover {
+  background-color: white;
+  border-color: white;
+}
+.home-modal__button--trust {
+  background-color: #ffdb59;
+}
+.home-modal__button--trust:hover {
+  background-color: #fffc57;
+}
+.home-modal__button--no-trust {
+  border: 1px solid black;
 }
 
 /*# sourceMappingURL=style.css.map */

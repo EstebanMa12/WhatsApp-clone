@@ -1,8 +1,12 @@
 import HomeTemplate from '../public/templates/Home.html'
+import HomeWelcomeTemplate from '../public/templates/Home_Welcome.html'
+import HomeTrustedDeviceTemplate from '../public/templates/Home_Trusted_Device.html'
 
 console.log('HELLO FROM HOME.JS')
 
 root.innerHTML = HomeTemplate
+root.innerHTML += HomeTrustedDeviceTemplate
+
 
 document.querySelector('.unregister-button').onclick = () => {
     localStorage.setItem('MAKAIAPP_session', false)

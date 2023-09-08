@@ -1,4 +1,4 @@
-import SignUpTemplate from '../../public/templates/Sign_up copy.html'
+import SignUpTemplate from '../../public/templates/Verify.html'
 import { initializeApp } from 'firebase/app'
 import {
     getAuth,
