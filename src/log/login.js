@@ -21,18 +21,17 @@ async function handleConnectionAttempt(event) {
     const phoneNumber = formData.get('phone')
 
     // Evaluate whether phone number is already verified on system
-    const userVerified = queryDBToAuthenticate(phoneNumber)
-    if (await userVerified) return createSession()
+    const User = await queryDBToAuthenticate(phoneNumber)
+    if (await User.verified) return createSession(User)
     authPhoneWithSMSThroughFirebase(phoneNumber)
 }
 
 // This function creates a session when
 // user already exists or admin connects
-export function createSession() {
-    localStorage.setItem('MAKAIAPP_session', true)
+export async function createSession(User) {
+    import('./User').then(mod => {mod.User.set(User)})
     window.location.href = '/'
 }
-
 // if running on a localserver, dev environment
 // or any environment different to production,
 // render a "Connect as an Admin" button
@@ -42,7 +41,7 @@ if (devENV) {
     
     button.innerText = 'Connect as an Admin'
     button.style.backgroundColor = 'purple'
-    button.onclick = createSession    
+    button.onclick = () => import('../home')
 
     connectButton.parentElement.appendChild(button)
 }

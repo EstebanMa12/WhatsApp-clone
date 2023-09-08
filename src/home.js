@@ -1,6 +1,8 @@
 import HomeTemplate from '../public/templates/Home.html'
 import HomeWelcomeTemplate from '../public/templates/Home_Welcome.html'
 import HomeTrustedDeviceTemplate from '../public/templates/Home_Trusted_Device.html'
+import { User } from './log/User'
+
 
 console.log('HELLO FROM HOME.JS')
 

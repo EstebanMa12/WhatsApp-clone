@@ -70,8 +70,4 @@ function authPhoneWithSMSThroughFirebase(phoneNumber) {
         })
 }
 
-function getCodeFromUserInput() {
-
-}
-
 export default authPhoneWithSMSThroughFirebase

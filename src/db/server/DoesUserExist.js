@@ -6,7 +6,7 @@ async function queryDBToAuthenticate(phoneNumber) {
     try {
         phoneNumber = phoneNumber.replace(/\D/g, '')
         const existingUser = await axios.get(ENDPOINT + phoneNumber)
-        return existingUser.data.verified
+        return existingUser.data
     } catch {
         const newUser = {
             id: phoneNumber,
@@ -23,7 +23,7 @@ async function queryDBToAuthenticate(phoneNumber) {
 
         axios.post(ENDPOINT, newUser)
         .then(() => console.log('USER', phoneNumber, 'REGISTERED'))
-        return newUser.verified
+        return newUser
     }
 }
 

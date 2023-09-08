@@ -3,8 +3,8 @@ import { createSession } from '../../log/login'
 
 async function verifyUser(phoneNumber) {
     const ENDPOINT = API_URL + 'users/' + phoneNumber
-    await axios.patch(ENDPOINT, { verified: true })
-    createSession()
+    const User = await axios.patch(ENDPOINT, { verified: true })
+    createSession(User)
 } 
 
 export default verifyUser
