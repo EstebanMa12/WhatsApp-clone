@@ -18,9 +18,12 @@ export async function decode(doodle) {
     if (!doodle) return
 
     try {
-        const response = await axios.get(decoder + doodle)
+        const response = await axios.get(decoder + doodle, {
+            headers,
+            validateStatus: () => true,
+        })
         return response.data.decodedNumbers
     } catch (error) {
-        console.error('Error decoding:', error.message)
+        return null
     }
 }

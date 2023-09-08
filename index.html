@@ -12,9 +12,10 @@
             id="root"
             aria-haspopup="dialog"></main>
         <script>
-            // Limit session time to 15 mins
+            // If sessionStorage saves makaiapp-session, Limit session time to 15 mins
             // it lacks to program reset on count down if user is active.
-            setTimeout(() => sessionStorage.clear(), 1_000 * 60 * 15)
+            if (sessionStorage.getItem('makaiapp-session'))
+                setTimeout(() => sessionStorage.clear(), 1_000 * 60 * 15)
 
             const devENV = window.location.href
                 .substring(0, 8)

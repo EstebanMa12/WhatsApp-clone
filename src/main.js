@@ -6,7 +6,6 @@ import isTrustedDevice from './db/server/isTrustedDevice'
 console.log('HELLO FROM MAIN.JS')
 
 const TRUSTED_DEVICE = await isTrustedDevice()
-
 const storedSession = sessionStorage.getItem('makaiapp-session')
 const USER_LOGGED =
     storedSession === 'ADMON'

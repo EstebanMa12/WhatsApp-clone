@@ -1,11 +1,14 @@
-import axios from "axios"
+import axios from 'axios'
 
 const ENDPOINT = API_URL + 'users/'
 
 async function queryDBToAuthenticate(phoneNumber) {
     try {
         phoneNumber = phoneNumber.replace(/\D/g, '')
-        const existingUser = await axios.get(ENDPOINT + phoneNumber)
+        const existingUser = await axios.get(ENDPOINT + phoneNumber, {
+            headers,
+            validateStatus: () => true,
+        })
         return existingUser.data
     } catch {
         const newUser = {
@@ -17,12 +20,13 @@ async function queryDBToAuthenticate(phoneNumber) {
                 tag: null,
                 avatar: null,
                 online: false,
-                last_connection: null
-            }
+                last_connection: null,
+            },
         }
 
-        axios.post(ENDPOINT, newUser)
-        .then(() => console.log('USER', phoneNumber, 'REGISTERED'))
+        axios
+            .post(ENDPOINT, newUser)
+            .then(() => console.log('USER', phoneNumber, 'REGISTERED'))
         return newUser
     }
 }

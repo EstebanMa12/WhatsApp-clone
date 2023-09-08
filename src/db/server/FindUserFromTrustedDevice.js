@@ -2,15 +2,14 @@ import axios from 'axios'
 
 const ENDPOINT = API_URL + 'users/'
 
-async function isTrustedDevice() {
+async function findUserFromTrustedDevice() {
     try {
         let existingUsers = await axios.get(ENDPOINT)
         existingUsers = existingUsers.data
 
-        const trustedDevices = existingUsers.flatMap(
-            user => user.trusted_devices
+        return existingUsers.find(user =>
+            user.trusted_devices.includes(navigator.userAgent)
         )
-        return trustedDevices.includes(navigator.userAgent)
     } catch (error) {
         console.log('Please check your server!')
         console.log('It seems your HTTP GET Request failed somehow...')
@@ -18,4 +17,4 @@ async function isTrustedDevice() {
     }
 }
 
-export default isTrustedDevice
+export default findUserFromTrustedDevice
