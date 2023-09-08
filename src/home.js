@@ -1,7 +1,6 @@
 import HomeTemplate from '../public/templates/Home.html'
 import HomeWelcomeTemplate from '../public/templates/Home_Welcome.html'
 import HomeTrustedDeviceTemplate from '../public/templates/Home_Trusted_Device.html'
-import { User } from './log/User'
 
 
 console.log('HELLO FROM HOME.JS')
@@ -11,7 +10,7 @@ root.innerHTML += HomeTrustedDeviceTemplate
 
 
 document.querySelector('.unregister-button').onclick = () => {
-    localStorage.setItem('MAKAIAPP_session', false)
+    sessionStorage.setItem('MAKAIAPP_session', false)
     window.location.href = '/'
 }
 

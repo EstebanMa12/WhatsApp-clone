@@ -1,20 +1,21 @@
 import LoginTemplate from '../../public/templates/Login.html'
-import queryDBToAuthenticate from '../db/server/DoesUserExist'
+import queryDBToAuthenticate from '../db/server/RegisterUser'
 import authPhoneWithSMSThroughFirebase from '../auth/firebaseSMSAuth'
+import { encode } from '../auth/privateCryptoServer'
 
 console.log('HELLO FROM LOGIN.JS')
 
-root.innerHTML         = LoginTemplate
-const phoneNumberInput = document.querySelector('input')  
-const connectButton    = document.querySelector('button')
-const loginForm        = document.querySelector('form')
+root.innerHTML = LoginTemplate
+const phoneNumberInput = document.querySelector('input')
+const connectButton = document.querySelector('button')
+const loginForm = document.querySelector('form')
 
 loginForm.onsubmit = event => handleConnectionAttempt(event)
 
 async function handleConnectionAttempt(event) {
     event.preventDefault()
 
-    if (phoneNumberInput.value.length < 10) return 
+    if (phoneNumberInput.value.length < 10) return
 
     // Gather given phone number by client on the form
     const formData = new FormData(loginForm)
@@ -22,15 +23,23 @@ async function handleConnectionAttempt(event) {
 
     // Evaluate whether phone number is already verified on system
     const User = await queryDBToAuthenticate(phoneNumber)
-    if (await User.verified) return createSession(User)
+    if (await User.verified) return createSession(phoneNumber)
     authPhoneWithSMSThroughFirebase(phoneNumber)
 }
 
 // This function creates a session when
 // user already exists or admin connects
-export async function createSession(User) {
-    import('./User').then(mod => {mod.User.set(User)})
-    window.location.href = '/'
+export async function createSession(phoneNumber) {
+    if (phoneNumber === 'ADMON') {
+        sessionStorage.setItem('makaiapp-session', 'ADMON')
+        return (window.location.href = '/')
+    }
+
+    await encode(phoneNumber)
+        .then(encodedPhoneNumber =>
+            sessionStorage.setItem('makaiapp-session', encodedPhoneNumber)
+        )
+        .finally(() => (window.location.href = '/'))
 }
 // if running on a localserver, dev environment
 // or any environment different to production,
@@ -38,10 +47,10 @@ export async function createSession(User) {
 // to skip authentication logic test
 if (devENV) {
     const button = document.createElement('button')
-    
+
     button.innerText = 'Connect as an Admin'
     button.style.backgroundColor = 'purple'
-    button.onclick = () => import('../home')
+    button.onclick = () => createSession('ADMON')
 
     connectButton.parentElement.appendChild(button)
 }

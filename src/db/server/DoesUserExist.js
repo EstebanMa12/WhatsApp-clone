@@ -1,30 +1,17 @@
-import axios from "axios"
+import axios from 'axios'
 
 const ENDPOINT = API_URL + 'users/'
 
-async function queryDBToAuthenticate(phoneNumber) {
+async function doesUserExist(phoneNumber) {
+    if ((await phoneNumber) == null) return
+
     try {
         phoneNumber = phoneNumber.replace(/\D/g, '')
         const existingUser = await axios.get(ENDPOINT + phoneNumber)
         return existingUser.data
-    } catch {
-        const newUser = {
-            id: phoneNumber,
-            verified: false,
-            trusted_devices: [],
-            profile: {
-                name: null,
-                tag: null,
-                avatar: null,
-                online: false,
-                last_connection: null
-            }
-        }
-
-        axios.post(ENDPOINT, newUser)
-        .then(() => console.log('USER', phoneNumber, 'REGISTERED'))
-        return newUser
+    } catch (error) {
+        console.error(error)
     }
 }
 
-export default queryDBToAuthenticate
+export default doesUserExist
