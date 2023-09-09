@@ -18,10 +18,10 @@
             const ONE_MINUTE_IN_MILISECONDS = 1_000 * 60
 
             if (sessionStorage.getItem('makaiapp_session')) {
-                setTimeout(
-                    () => sessionStorage.clear(),
-                    FIFTEEN_MINUTES_IN_MILISECONDS
-                )
+                setTimeout(() => {
+                    sessionStorage.clear()
+                    window.location.href = '/'
+                }, FIFTEEN_MINUTES_IN_MILISECONDS)
                 console.log(
                     'Your session will expire in',
                     FIFTEEN_MINUTES_IN_MILISECONDS / ONE_MINUTE_IN_MILISECONDS,

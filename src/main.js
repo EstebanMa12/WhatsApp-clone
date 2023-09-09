@@ -8,10 +8,14 @@ export async function validateStoredSession(session) {
     return await doesUserExist(await decode(session))
 }
 
+export function hideServer() {
+    return console.clear()
+}
+
 const storedSession = sessionStorage.getItem('makaiapp_session')
 
 const USER_LOGGED = !!storedSession
-    ? storedSession === 'ADMON'
+    ? storedSession === 'QURNT04='
         ? storedSession
         : await validateStoredSession(storedSession)
     : storedSession

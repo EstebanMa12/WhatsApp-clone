@@ -450,6 +450,7 @@ a {
 .home-modal__trust {
   background-image: linear-gradient(to bottom right, #add2d6, #3382b7);
   height: min-content;
+  position: relative;
   display: flex;
   flex-flow: column;
   border: 2px solid;
@@ -459,6 +460,31 @@ a {
   padding: 69px;
   font-size: 1.2rem;
   transition: border-color 0.25s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s .home-modal__trust __figure;
+  /* Add Animation */
+  @-webkit-keyframes animatetop;
+}
+.home-modal__trust from {
+  top: -300px .home-modal__trust from __figure;
+  opacity: 0 .home-modal__trust from __figure;
+}
+.home-modal__trust to {
+  top: 0;
+  opacity: 1;
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 .home-modal__trust:hover {
   border-color: blue;

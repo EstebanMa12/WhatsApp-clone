@@ -34,6 +34,7 @@
 @mixin modal
     background-image: linear-gradient(to bottom right, #add2d6, #3382b7)// 9c39ff
     height: min-content
+    position: relative
     display: flex
     flex-flow: column
     border: 2px solid
@@ -43,8 +44,30 @@
     padding: 69px
     font-size: 1.2rem
     transition: border-color .25s
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+    -webkit-animation-name: animatetop
+    -webkit-animation-duration: 0.4s
+    animation-name: animatetop
+    animation-duration: 0.4s &__figure
+    /* Add Animation */
+    @-webkit-keyframes animatetop
+    from 
+        top: -300px &__figure
+        opacity: 0 &__figure
+
+    to 
+        top: 0
+        opacity: 1
+    @keyframes animatetop
+        from
+            top: -300px
+            opacity: 0  
+        to
+            top: 0
+            opacity: 1
     &:hover
         border-color: blue
+
 
 @mixin modal-button
     font-size: 1rem
@@ -55,4 +78,3 @@
     &:hover
         background-color: white
         border-color: white
-        

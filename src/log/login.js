@@ -64,8 +64,7 @@ async function handleConnectionAttempt(event) {
 // This function creates a session when
 // user already exists or admin connects
 export async function createSession(phoneNumber) {
-    const sessionKey =
-        phoneNumber === 'ADMON' ? 'ADMON' : await encode(phoneNumber)
+    const sessionKey = await encode(phoneNumber)
     sessionStorage.setItem('makaiapp_session', sessionKey)
     window.location.href = '/'
 }
@@ -78,7 +77,7 @@ if (devENV) {
 
     button.innerText = 'Connect as an Admin'
     button.style.backgroundColor = 'purple'
-    button.onclick = () => createSession('ADMON')
+    button.onclick = () => createSession('0123456789')
 
     connectButton.parentElement.appendChild(button)
 }

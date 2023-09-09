@@ -20,39 +20,37 @@ const api = axios.create({
     baseURL: decoder,
 })
 
-export async function decode(doodle) {
-    if (!doodle) return null
+api.interceptors.request.use(
+    config => config,
+    error => Promise.reject(error)
+)
 
-    api.interceptors.request.use(
-        config => config,
-        error => Promise.reject(error)
-    )
+api.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response) {
+            const sanitizedError = { ...error }
 
-    api.interceptors.response.use(
-        response => response,
-        error => {
-            if (error.response) {
-                const sanitizedError = { ...error }
-
-                sanitizedError.config.url = '*** CENSORED URL ***'
-                return Promise.reject(sanitizedError)
-            } else if (error.request) {
-                const sanitizedError = { ...error }
-                sanitizedError.request._currentUrl = '*** CENSORED URL ***'
-                return Promise.reject(sanitizedError)
-            } else {
-                return Promise.reject(error)
-            }
+            sanitizedError.config.url = '*** CENSORED URL ***'
+            return Promise.reject(sanitizedError)
+        } else if (error.request) {
+            const sanitizedError = { ...error }
+            sanitizedError.request._currentUrl = '*** CENSORED URL ***'
+            return Promise.reject(sanitizedError)
+        } else {
+            return Promise.reject(error)
         }
-    )
+    }
+)
+
+export async function decode(doodle) {
+    if (!doodle || /^[0-9]+$/.test(doodle)) return null
 
     try {
-        const response = await api.get(decoder + doodle, {
-            validateStatus: () => true,
-        })
-
+        const response = await api.get(decoder + doodle)
         return response.data.decodedNumbers
     } catch (error) {
+        import('../main').then(helpMeTo => helpMeTo.hideServer())
         return null
     }
 }

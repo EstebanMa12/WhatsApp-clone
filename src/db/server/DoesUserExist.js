@@ -7,7 +7,6 @@ async function doesUserExist(phoneNumber) {
         return false
 
     try {
-        phoneNumber = phoneNumber.replace(/\D/g, '')
         const existingUser = await axios.get(ENDPOINT + phoneNumber)
 
         return existingUser.data
