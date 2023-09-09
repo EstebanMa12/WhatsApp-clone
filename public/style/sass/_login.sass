@@ -6,7 +6,7 @@
     display: flex
     flex-direction: column
     &__container
-        // border: 1px solid black
+        //border: 1px solid black
         background-color: #fff
         border-radius: 8px
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2)
@@ -38,21 +38,55 @@
     & button
         margin-top: 10px
         padding: 10px
-        border: 1px solid var.$base_green
+        border: none
         border-radius: 4px
         width: 100%
-        background-color: var.$base_green
+        background-color: #111
         color: #fff
         font-weight: 500
         cursor: pointer
-        &:hover
-            background-color: var.$base_green_dark
-            border: 1px solid var.$base_green_dark
+        overflow: hidden
+        z-index: 0
+        user-select: none
+        touch-action: manipulation
+        &:before
+            content: ''
+            background: linear-gradient(45deg,#ff0000,            #ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,#ff0000)
+            position: absolute
+            top: -2px
+            left: -2px
+            background-size: 400%
+            z-index: -1
+            filter: blur(5px)
+            width: calc(10% + 4px)
+            height: calc(10% + 4px)
+            animation: glowing 20s linear infinite
+            transition: opacity 0.3s ease-in-out
+            border-radius: 10px
+        @keyframes glowing 
+                0%
+                background-position: 0 0
+                50%
+                background-position: 400% 0
+                100%
+                background-position: 0 0
+        &::after
+            z-index: -1
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            background: #222
+            top: 0
+            left: 0
+            border-radius: 10px
+            opacity: 0
+            transition: opacity 0.3s ease-in-out
 
 a
     text-align: right
     align-self: flex-end
     margin-left: 160px
-    // border: 1px solid black
+    //border: 1px solid black
     font-size: 12px
     margin-top: 5px
