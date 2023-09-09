@@ -1,20 +1,35 @@
 @use 'variables' as var
 @use 'mixins'
 
+#trusted_device
+    z-index: 999
+
+#profile
+    z-index: 1
+
 .home-modal
     @include mixins.modal-container
     &__trust
         @include mixins.modal
+    &__welcome
+        @include mixins.modal
     &__title
+        cursor: pointer
         font-size: 2rem
+        text-align: center
+    &__text
+        margin: 100px
+        margin-top: 0
+        margin-bottom: 50px
+        text-align: center
     &__figure
         width: 300px
         height: 300px
     &__button
         &s
             width: 100%
+            margin-bottom: 30px
             display: flex
-            margin-top: 50px
             justify-content: center
             gap: 40px
         &--trust,
@@ -26,4 +41,69 @@
                 background-color: #fffc57
         &--no-trust
             border: 1px solid black
-            // background-color: white
+    &__form--input
+        border: none
+        border-bottom: 1px solid #ccc
+        padding: 5px 0
+        font-size: 16px
+        transition: border-color 0.3s ease-in-out
+        background: transparent
+        &:focus
+            outline: none
+            border-color: #007bff
+
+legend
+    background-image: linear-gradient(to bottom right, rgba(173, 210, 214), rgba(51, 130, 183))
+    padding: 5px 10px /* Add padding for spacing around the text */
+    border-radius: 5px /* Add border-radius for rounded corners */
+    color: white /* Text color for better readability */
+    transform: rotate(-20deg) /* Rotate the legend element diagonally */
+    transform-origin: 0 0 /* Set the rotation origin to the top-left corner */
+    position: relative
+    right: 69px
+    top: 40px
+
+fieldset
+    border: none /* Remove the fieldset border if needed */
+    background-image: linear-gradient(to bottom right, #add2d6, #3382b7)
+    padding: 20px /* Add padding for better visual separation */
+
+.drop-zone
+    width: 200px
+    height: 200px
+    border: 2px dashed #3498db
+    border-radius: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    cursor: pointer
+    overflow: hidden
+
+    label
+        font-weight: bold
+        cursor: pointer
+
+    input[type="file"]
+        display: none
+        cursor: pointer
+
+    &.dropover
+        background-color: #f0f0f0
+        cursor: pointer
+
+textarea
+    border: none
+    border-bottom: 2px solid #007bff
+    padding: 10px
+    font-size: 16px
+    transition: border-color 0.3s ease-in-out
+    width: 100%
+    background-color: transparent
+    color: #333
+    &::placeholder
+        color: #000000
+
+    &:focus
+        outline: none
+        border-color: #c125ff

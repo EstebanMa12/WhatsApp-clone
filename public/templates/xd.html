@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>Image Preloading on Drag and Drop</title>
+        <style>
+            .drop-zone {
+                width: 300px;
+                height: 300px;
+                border: 2px dashed #ccc;
+                position: relative;
+                border-radius: 50%; /* Make it a circle */
+                overflow: hidden; /* Hide the corners of the circle */
+            }
+            .image-preview {
+                max-width: 100%;
+                max-height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div
+            class="drop-zone"
+            id="drop-zone">
+            <input
+                type="file"
+                id="file-input"
+                accept="image/*"
+                style="display: none" />
+            <label for="file-input">
+                <figure>
+                    <img
+                        src=""
+                        alt="A piece of art"
+                        class="image-preview"
+                        id="preview-image" />
+                </figure>
+            </label>
+        </div>
+    </body>
+</html>

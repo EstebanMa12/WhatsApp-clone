@@ -9,7 +9,6 @@ export async function trustOrNotTrust(phoneNumber, TrustDevice) {
             }
         },
         trust: () => {
-            console.log('...fuck')
             import('../../../db/server/TrustDevice')
                 .then(mod => mod.default(phoneNumber, TrustDevice))
                 .finally(() => closeModal(document.body))
@@ -32,14 +31,6 @@ export async function trustOrNotTrust(phoneNumber, TrustDevice) {
     function setVisibile(visible) {
         const display = visible ? 'block' : 'none'
         document.querySelector('.home-modal').style.display = display
-    }
-
-    function setFocus() {
-        document
-            .querySelectorAll(
-                '.modal button, modal input, modal textarea, modal select'
-            )[0]
-            .focus()
     }
 
     function setInertBehindModal(inert) {

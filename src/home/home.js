@@ -11,7 +11,7 @@ const storedSession = sessionStorage.getItem('makaiapp_session')
 
 const User = await validateStoredSession(storedSession)
 
-console.log(User, 'FROM HOME WE ARRIVED WELL')
+console.log(User, 'FROM HOME, SWEET HOME')
 // swap user's connected to true
 
 // If not a trusted device, prompt "is a trusted device" modal
@@ -20,6 +20,11 @@ if (!User.trusted_devices.includes(navigator.userAgent)) {
         modals.trustOrNotTrust(User.id, navigator.userAgent)
     )
     root.innerHTML += HomeTrustedDeviceTemplate
+}
+
+if (!User.profile?.name) {
+    import('./modals/modals').then(modals => modals.fillOutProfile(User.id))
+    root.innerHTML += HomeProfileTemplate
 }
 
 // UN-REGISTER BUTTON

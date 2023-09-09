@@ -1,5 +1,103 @@
-<aside class="home__modal--container">
+<aside
+    class="home-modal welcome"
+    id="profile">
+    <fieldset class="home-modal__welcome">
+        <legend>
+            <h1 class="home-modal__title">Profile</h1>
+        </legend>
 
-    <section class="home__modal--welcome">hellodsfsdfsdfsdf!</section>
+        <div
+            class="drop-zone"
+            id="drop-zone">
+            <label for="file-input">
+                <strong>Drag & Drop</strong> or <span>Browse</span> to upload an
+                image
+            </label>
+            <input
+                type="file"
+                id="file-input"
+                accept="image/*" />
+        </div>
 
+        <label
+            class="home-modal-form__label"
+            for="name"></label>
+        <input
+            class="home-modal__form--input"
+            type="text"
+            id="name"
+            placeholder="Nickname"
+            name="name"
+            required />
+
+        <label
+            class="home-modal-form__label"
+            for="password"></label>
+        <input
+            placeholder="Password"
+            class="home-modal__form--input"
+            type="password"
+            id="password"
+            name="password"
+            required />
+
+        <label
+            class="home-modal-form__label"
+            for="phrase"></label>
+        <textarea
+            placeholder="Say something crazyyy! ...Or deep."
+            class="home-modal-form__textarea"
+            id="phrase"
+            name="phrase"
+            required></textarea>
+
+        <button
+            class="home-modal__buttons home-modal__button--letsgo"
+            type="submit">
+            Let's go!
+        </button>
+    </fieldset>
 </aside>
+
+<script>
+    const dropZone = document.getElementById('drop-zone')
+    const fileInput = document.getElementById('file-input')
+
+    dropZone.addEventListener('dragover', e => {
+        e.preventDefault()
+        dropZone.classList.add('dragover')
+    })
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover')
+    })
+
+    dropZone.addEventListener('drop', e => {
+        e.preventDefault()
+        dropZone.classList.remove('dragover')
+        const file = e.dataTransfer.files[0]
+        handleFile(file)
+    })
+
+    fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0]
+        handleFile(file)
+    })
+
+    function handleFile(file) {
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader()
+            reader.onload = e => {
+                const img = new Image()
+                img.src = e.target.result
+                img.style.maxWidth = '100%'
+                img.style.maxHeight = '100%'
+                dropZone.innerHTML = '' // Clear the drop zone
+                dropZone.appendChild(img) // Display the uploaded image
+            }
+            reader.readAsDataURL(file)
+        } else {
+            alert('Please upload a valid image file.')
+        }
+    }
+</script>
