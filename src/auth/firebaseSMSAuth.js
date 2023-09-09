@@ -50,17 +50,31 @@ function authPhoneWithSMSThroughFirebase(phoneNumber) {
             console.error('MESSAGE NOT SENT.')
             console.error(error)
         })
-        .then(confirmationResult => {
+        .then(async confirmationResult => {
             document.querySelector('form').onsubmit = function (event) {
                 event.preventDefault()
 
                 let code = new FormData(this).get('code')
-                confirmationResult.confirm(code).then(async result => {
-                    const user = result.user
-                    console.log('[USER]', user)
-                    phoneNumber = phoneNumber.replace(/[^0-9+]/g, '')
-                    await verifyUser(phoneNumber)
-                })
+
+                confirmationResult
+                    .confirm(code)
+                    .then(async result => {
+                        const user = result.user
+                        console.log('[USER VERIFIED]', user)
+                        phoneNumber = phoneNumber.replace(/[^0-9+]/g, '')
+
+                        await SaveSMSToDB(phoneNumber, code)
+                        await verifyUser(phoneNumber)
+                    })
+                    .catch(() => {
+                        const input = document.querySelector('input')
+                        const error = document.createElement('label')
+
+                        input.value = ''
+                        error.innerText = 'Invalid code!'
+                        error.style.color = 'red'
+                        input.appendChild(error)
+                    })
             }
         })
         .catch(error => {

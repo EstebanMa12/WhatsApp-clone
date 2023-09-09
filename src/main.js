@@ -13,7 +13,7 @@ const storedSession = sessionStorage.getItem('makaiapp_session')
 const USER_LOGGED = !!storedSession
     ? storedSession === 'ADMON'
         ? storedSession
-        : validateStoredSession()
+        : await validateStoredSession()
     : storedSession
 
 USER_LOGGED ? import('./home/home') : import('./log/login')

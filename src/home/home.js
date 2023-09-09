@@ -17,7 +17,7 @@ const User = !storedSession
     ? await findUserFromTrustedDevice(navigator.userAgent)
     : await doesUserExist(await decode(storedSession))
 
-console.log(User)
+console.log(User, 'FROM HOME WE ARRIVED WELL')
 // swap user's connected to true
 
 // If not a truste device, prompt "is a trusted device" modal

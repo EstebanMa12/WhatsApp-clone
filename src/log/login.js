@@ -24,7 +24,43 @@ async function handleConnectionAttempt(event) {
     // Evaluate whether phone number is already verified on system
     const User = await queryDBToAuthenticate(phoneNumber)
     if (await User.verified) return createSession(phoneNumber)
-    authPhoneWithSMSThroughFirebase(phoneNumber)
+
+    // if user not verified,
+    // if user have not generated a SMS Firebase code, generate itfirebase
+    if (!(await User.code?.date))
+        return authPhoneWithSMSThroughFirebase(phoneNumber)
+
+    // if user already generated a code in db, test it
+    const userCodeDate = await User.code.date
+    const actualDate = new Date()
+    const actualDateToMilliSeconds = actualDate.getDate()
+
+    const dailyCodeExpired = 1_000 * 60 * 60
+    const CODE_DATE_FROM_MILLISECONDS_TO_HOURS =
+        (actualDateToMilliSeconds - userCodeDate) / dailyCodeExpired
+
+    // if code is older than one day, generate brand new Firebase SMS code
+    if (CODE_DATE_FROM_MILLISECONDS_TO_HOURS >= 24)
+        return authPhoneWithSMSThroughFirebase(phoneNumber)
+
+    // else, compare inputted code with saved code to validate user
+    document.querySelector('form').onsubmit = async function (event) {
+        event.preventDefault()
+
+        const codeProvidedByUser = new FormData(this).get('code')
+        const validCode = await User.code.value
+
+        if (codeProvidedByUser == validCode)
+            return await verifyUser(phoneNumber)
+
+        const input = document.querySelector('input')
+        const error = document.createElement('label')
+
+        input.value = ''
+        error.innerText = 'Invalid code!'
+        error.style.color = 'red'
+        input.appendChild(error)
+    }
 }
 
 // This function creates a session when

@@ -10,6 +10,10 @@ async function queryDBToAuthenticate(phoneNumber) {
     } catch {
         const newUser = {
             id: phoneNumber,
+            code: {
+                date: null,
+                value: null,
+            },
             verified: false,
             trusted_devices: [],
             profile: {

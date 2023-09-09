@@ -19,7 +19,6 @@ export async function decode(doodle) {
 
     try {
         const response = await axios.get(decoder + doodle, {
-            headers,
             validateStatus: () => true,
         })
         return response.data.decodedNumbers
