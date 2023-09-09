@@ -76,7 +76,6 @@ if (devENV) {
     const button = document.createElement('button')
 
     button.innerText = 'Connect as an Admin'
-    button.style.backgroundColor = 'purple'
     button.onclick = () => createSession('0123456789')
 
     connectButton.parentElement.appendChild(button)

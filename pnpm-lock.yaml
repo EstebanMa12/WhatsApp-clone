@@ -11,6 +11,9 @@ dependencies:
   html-loader:
     specifier: ^4.2.0
     version: 4.2.0(webpack@5.88.2)
+  intl-tel-input:
+    specifier: ^18.2.1
+    version: 18.2.1
   js_vanilla_wpp_web:
     specifier: 'link:'
     version: 'link:'
@@ -3429,6 +3432,10 @@ packages:
   /interpret@2.2.0:
     resolution: {integrity: sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw==}
     engines: {node: '>= 0.10'}
+
+  /intl-tel-input@18.2.1:
+    resolution: {integrity: sha512-wOm0/61kTtpYjOOW1bhHzC4G8Om+atTxHmg31FS0KD0LQ8k8BpgO925npyi4jlT/EK4+joABABZzz0/XeSgupQ==}
+    dev: false
 
   /ipaddr.js@1.9.1:
     resolution: {integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==}

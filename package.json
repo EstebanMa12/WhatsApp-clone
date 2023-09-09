@@ -46,6 +46,7 @@
     "dependencies": {
         "firebase": "^10.3.1",
         "html-loader": "^4.2.0",
+        "intl-tel-input": "^18.2.1",
         "js_vanilla_wpp_web": "link:"
     }
 }
