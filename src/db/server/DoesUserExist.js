@@ -3,7 +3,8 @@ import axios from 'axios'
 const ENDPOINT = API_URL + 'users/'
 
 async function doesUserExist(phoneNumber) {
-    if ((await phoneNumber) == null || !phoneNumber) return false
+    if (/\D/.test(phoneNumber) || (await phoneNumber) === null || !phoneNumber)
+        return false
 
     try {
         phoneNumber = phoneNumber.replace(/\D/g, '')

@@ -1,9 +1,7 @@
 import HomeTemplate from '../../public/templates/Home.html'
-import HomeWelcomeTemplate from '../../public/templates/Home_Welcome.html'
+import HomeProfileTemplate from '../../public/templates/Home_Welcome.html'
 import HomeTrustedDeviceTemplate from '../../public/templates/Home_Trusted_Device.html'
-import doesUserExist from '../db/server/DoesUserExist'
-import { decode } from '../auth/privateCryptoServer'
-import findUserFromTrustedDevice from '../db/server/FindUserFromTrustedDevice'
+import { validateStoredSession } from '../main'
 
 console.log('HELLO FROM HOME.JS')
 root.innerHTML = HomeTemplate
@@ -11,16 +9,18 @@ root.innerHTML = HomeTemplate
 // get session from sessionStorage, if any
 const storedSession = sessionStorage.getItem('makaiapp_session')
 
-// if session does not exist, get user from trusted device
-// if session exists, get user from it
-const User = !storedSession
-    ? await findUserFromTrustedDevice(navigator.userAgent)
-    : await doesUserExist(await decode(storedSession))
+const User = await validateStoredSession(storedSession)
 
 console.log(User, 'FROM HOME WE ARRIVED WELL')
 // swap user's connected to true
 
-// If not a truste device, prompt "is a trusted device" modal
+// If not a trusted device, prompt "is a trusted device" modal
+if (!User.trusted_devices.includes(navigator.userAgent)) {
+    import('./modals/modals').then(modals =>
+        modals.trustOrNotTrust(User.id, navigator.userAgent)
+    )
+    root.innerHTML += HomeTrustedDeviceTemplate
+}
 
 // UN-REGISTER BUTTON
 document.querySelector('.unregister-button').onclick = () => {

@@ -27,8 +27,7 @@ async function handleConnectionAttempt(event) {
 
     // if user not verified,
     // if user have not generated a SMS Firebase code, generate itfirebase
-    if (!(await User.code?.date))
-        return authPhoneWithSMSThroughFirebase(phoneNumber)
+    if (!(await User.code?.date)) return //authPhoneWithSMSThroughFirebase(phoneNumber)
 
     // if user already generated a code in db, test it
     const userCodeDate = await User.code.date
@@ -40,8 +39,7 @@ async function handleConnectionAttempt(event) {
         (actualDateToMilliSeconds - userCodeDate) / dailyCodeExpired
 
     // if code is older than one day, generate brand new Firebase SMS code
-    if (CODE_DATE_FROM_MILLISECONDS_TO_HOURS >= 24)
-        return authPhoneWithSMSThroughFirebase(phoneNumber)
+    if (CODE_DATE_FROM_MILLISECONDS_TO_HOURS >= 24) return //authPhoneWithSMSThroughFirebase(phoneNumber)
 
     // else, compare inputted code with saved code to validate user
     document.querySelector('form').onsubmit = async function (event) {
