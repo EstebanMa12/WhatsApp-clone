@@ -32,7 +32,7 @@ async function handleConnectionAttempt(event) {
 export async function createSession(phoneNumber) {
     const sessionKey =
         phoneNumber === 'ADMON' ? 'ADMON' : await encode(phoneNumber)
-    sessionStorage.setItem('makaiapp-session', sessionKey)
+    sessionStorage.setItem('makaiapp_session', sessionKey)
     window.location.href = '/'
 }
 // if running on a localserver, dev environment

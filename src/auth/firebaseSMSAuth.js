@@ -51,20 +51,19 @@ function authPhoneWithSMSThroughFirebase(phoneNumber) {
             console.error(error)
         })
         .then(confirmationResult => {
-            document.querySelector('form').onsubmit = function(event) {
+            document.querySelector('form').onsubmit = function (event) {
                 event.preventDefault()
 
-                let code = new FormData(this).get('code') 
-                confirmationResult.confirm(code)
-                .then(result => { 
+                let code = new FormData(this).get('code')
+                confirmationResult.confirm(code).then(async result => {
                     const user = result.user
                     console.log('[USER]', user)
-
-                    verifyUser(phoneNumber)
+                    phoneNumber = phoneNumber.replace(/[^0-9+]/g, '')
+                    await verifyUser(phoneNumber)
                 })
             }
         })
-        .catch(error =>{
+        .catch(error => {
             console.error('INVALID NUMBER.')
             console.error(error)
         })
