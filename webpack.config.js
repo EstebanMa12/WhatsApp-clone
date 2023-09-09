@@ -35,6 +35,18 @@ module.exports = {
               test: /\.(css)$/,
               use: ['style-loader', 'css-loader'],
             },
+            {
+              test: /\.(woff(2)?|eot|ttf|otf|svg|png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }
+                ]
+            },
           ],
     },
     mode: 'development',

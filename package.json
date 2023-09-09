@@ -45,6 +45,7 @@
     },
     "dependencies": {
         "firebase": "^10.3.1",
+        "font-awesome": "^4.7.0",
         "html-loader": "^4.2.0",
         "intl-tel-input": "^18.2.1",
         "js_vanilla_wpp_web": "link:"

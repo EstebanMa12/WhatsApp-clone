@@ -8,6 +8,9 @@ dependencies:
   firebase:
     specifier: ^10.3.1
     version: 10.3.1
+  font-awesome:
+    specifier: ^4.7.0
+    version: 4.7.0
   html-loader:
     specifier: ^4.2.0
     version: 4.2.0(webpack@5.88.2)
@@ -3115,6 +3118,11 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+
+  /font-awesome@4.7.0:
+    resolution: {integrity: sha512-U6kGnykA/6bFmg1M/oT9EkFeIYv7JlX3bozwQJWiiLz6L0w3F5vBVPxHlwyX/vtNq1ckcpRKOB9f2Qal/VtFpg==}
+    engines: {node: '>=0.10.3'}
+    dev: false
 
   /form-data@4.0.0:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
