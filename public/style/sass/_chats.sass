@@ -16,7 +16,7 @@
         border-radius: 0.938rem 0.938rem 0 0
         color: var.$base_white
         &__img
-            @include mixins.image-mixin(50px)
+            @include mixins.image-mixin(3.125rem)
         &__name
             font-size: 1.2em
             font-weight: 600
@@ -34,19 +34,19 @@
             display: flex
             align-items: center
             cursor: pointer
-            padding: 15px
+            padding: 0.938rem
             border-bottom: 1px solid #eee
         &__image
             @include mixins.image-mixin(50px)
 
     &__details
         width: 100%
-        margin-left: 10px
+        margin-left: 0.625rem
         &__username
             display: flex
             justify-content: space-between
             align-items: center
-            margin-bottom: 2px
+            margin-bottom: 0.125rem
             & h4 
                 font-size: 1.1em
                 font-weight: 600
@@ -63,8 +63,8 @@
             b
                 background: var.$base_purpureus
                 color: #fff
-                min-width: 20px
-                height: 20px
+                min-width: 1.25rem
+                height: 1.25rem
                 border-radius: 50%
                 /*   text-align: center; */
                 font-size: 0.9em

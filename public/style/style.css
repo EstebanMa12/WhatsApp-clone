@@ -49,8 +49,8 @@ button {
 }
 .chats__header__img {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   overflow: hidden;
   border-radius: 50%;
   cursor: pointer;
@@ -72,7 +72,7 @@ button {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 15px;
+  padding: 0.938rem;
   border-bottom: 1px solid #eee;
 }
 .chats__user__image {
@@ -85,13 +85,13 @@ button {
 }
 .chats__details {
   width: 100%;
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 .chats__details__username {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 0.125rem;
 }
 .chats__details__username h4 {
   font-size: 1.1em;
@@ -110,8 +110,8 @@ button {
 .chats__details__textMessage b {
   background: #9d44b5;
   color: #fff;
-  min-width: 20px;
-  height: 20px;
+  min-width: 1.25rem;
+  height: 1.25rem;
   border-radius: 50%;
   /*   text-align: center; */
   font-size: 0.9em;
