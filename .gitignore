@@ -1,3 +1,4 @@
 node_modules/
 src/db/project/
 # src/auth/privateEndPoints.js
+.vscode

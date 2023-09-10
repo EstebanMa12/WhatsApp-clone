@@ -35,13 +35,17 @@ button {
 
 .chats {
   width: 30%;
+  border-radius: 0.938rem 0.938rem;
+  background-color: #ffffff;
 }
 .chats__header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #00A884;
+  padding: 0.625rem;
+  background-color: #c52233;
+  border-radius: 0.938rem 0.938rem 0 0;
+  color: #ffffff;
 }
 .chats__header__img {
   position: relative;
@@ -54,10 +58,9 @@ button {
 .chats__header__name {
   font-size: 1.2em;
   font-weight: 600;
-  color: #000;
+  color: #ffffff;
 }
 .chats__container {
-  /* border: 2px solid red  */
   position: relative;
   overflow-y: auto;
   background-color: #fff;
@@ -105,7 +108,7 @@ button {
   justify-content: space-between;
 }
 .chats__details__textMessage b {
-  background: #00A884;
+  background: #9d44b5;
   color: #fff;
   min-width: 20px;
   height: 20px;
@@ -177,7 +180,7 @@ button {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  background: #f0f0f0;
+  background: #7e8287;
   text-align: left;
   align-self: flex-start;
 }
@@ -256,7 +259,7 @@ button {
 .login input {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #5e6166;
   border-radius: 4px;
   width: 100%;
 }
@@ -363,7 +366,7 @@ a {
 .signup-form__input {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #5e6166;
   border-radius: 4px;
   width: 100%;
 }
@@ -394,7 +397,7 @@ a {
 .signup-form__textarea {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #5e6166;
   border-radius: 4px;
   width: 100%;
 }
@@ -419,7 +422,7 @@ a {
 .message__change-profile-button {
   width: 50%;
   height: 60%;
-  background-color: #ccc;
+  background-color: #5e6166;
   color: #fff;
   font-weight: 500;
   cursor: pointer;
@@ -427,8 +430,8 @@ a {
   border: none;
 }
 .message__change-profile-button:hover {
-  background-color: #f0f0f0;
-  border: 1px solid #f0f0f0;
+  background-color: #7e8287;
+  border: 1px solid #7e8287;
   color: #fff;
   cursor: pointer;
 }
@@ -458,7 +461,7 @@ a {
 }
 
 .profile-edit-button {
-  background-color: #ccc;
+  background-color: #5e6166;
   color: #fff;
   border: none;
   padding: 10px 20px;
