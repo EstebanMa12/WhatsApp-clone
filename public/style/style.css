@@ -177,8 +177,8 @@ button {
 .webchat__message-received {
   max-width: 50%;
   word-wrap: break-word;
-  margin: 10px 0;
-  padding: 10px;
+  margin: 0.625rem 0;
+  padding: 0.625rem;
   border-radius: 8px;
   background: #7e8287;
   text-align: left;
@@ -187,8 +187,8 @@ button {
 .webchat__message-sent {
   max-width: 50%;
   word-wrap: break-word;
-  margin: 10px 0;
-  padding: 10px;
+  margin: 0.625rem 0;
+  padding: 0.625rem;
   border-radius: 8px;
   background: #00A884;
   text-align: right;
@@ -476,29 +476,69 @@ a {
 
 .profile-info__phone {
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-around;
   font-size: 0.8rem;
   color: #5e6166;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 .profile-info__phone span {
+  margin-left: 0.625rem;
   width: 100%;
   font-weight: 400;
   color: #5e6166;
+}
+.profile-info__phone span:nth-child(3) {
+  color: #201e1f;
+}
+.profile-info__phone img {
+  height: 1.875rem;
+  width: 1.875rem;
 }
 .profile-info__email {
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-around;
   font-size: 0.8rem;
   color: #5e6166;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 .profile-info__email span {
+  margin-left: 0.625rem;
   width: 100%;
   font-weight: 400;
   color: #5e6166;
+}
+.profile-info__email span:nth-child(3) {
+  color: #201e1f;
+}
+.profile-info__email img {
+  height: 1.875rem;
+  width: 1.875rem;
+}
+.profile-info__address {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  color: #5e6166;
+  margin-bottom: 0.625rem;
+}
+.profile-info__address span {
+  margin-left: 0.625rem;
+  width: 100%;
+  font-weight: 400;
+  color: #5e6166;
+}
+.profile-info__address span:nth-child(3) {
+  color: #201e1f;
+}
+.profile-info__address img {
+  height: 1.875rem;
+  width: 1.875rem;
 }
 
 .profile__header {
@@ -579,11 +619,11 @@ a {
   flex-flow: column;
   border: 2px solid;
   border-color: black;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   align-items: center;
   font-size: 1.2rem;
   transition: border-color 0.25s;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 1.25rem 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
@@ -620,11 +660,11 @@ a {
   flex-flow: column;
   border: 2px solid;
   border-color: black;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   align-items: center;
   font-size: 1.2rem;
   transition: border-color 0.25s;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 1.25rem 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;

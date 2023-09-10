@@ -71,27 +71,11 @@
 .profile
   &-info
     &__phone
-      display: flex
-      flex-direction: row
-      justify-content: space-around
-      font-size: 0.8rem
-      color: var.$base_gray_dark
-      margin-bottom: 10px
-      & span
-        width: 100%
-        font-weight: 400
-        color: var.$base_gray_dark
+      @include mixins.profile_info()
     &__email
-      display: flex
-      flex-direction: row
-      justify-content: space-around
-      font-size: 0.8rem
-      color: var.$base_gray_dark
-      margin-bottom: 10px
-      & span
-        width: 100%
-        font-weight: 400
-        color: var.$base_gray_dark
+      @include mixins.profile_info()
+    &__address
+      @include mixins.profile_info()
 
 
 .profile__header
