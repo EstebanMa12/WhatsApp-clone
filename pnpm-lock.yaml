@@ -43,6 +43,9 @@ devDependencies:
   css-loader:
     specifier: ^6.7.1
     version: 6.8.1(webpack@5.88.2)
+  file-loader:
+    specifier: ^6.2.0
+    version: 6.2.0(webpack@5.88.2)
   html-webpack-plugin:
     specifier: ^5.5.0
     version: 5.5.3(webpack@5.88.2)
@@ -3039,6 +3042,17 @@ packages:
     engines: {node: '>=0.8.0'}
     dependencies:
       websocket-driver: 0.7.4
+
+  /file-loader@6.2.0(webpack@5.88.2):
+    resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    dependencies:
+      loader-utils: 2.0.4
+      schema-utils: 3.3.0
+      webpack: 5.88.2(webpack-cli@4.10.0)
+    dev: true
 
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}

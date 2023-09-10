@@ -6,7 +6,7 @@ import { validateStoredSession } from '../main'
 console.log('HELLO FROM HOME.JS')
 root.innerHTML = HomeTemplate
 
-// get session from sessionStorage, if any
+// * get session from sessionStorage, if any
 // const storedSession = sessionStorage.getItem('makaiapp_session')
 
 // const User = await validateStoredSession(storedSession)
