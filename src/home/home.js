@@ -36,9 +36,16 @@ document.querySelector('.unregister-button').onclick = () => {
 const change_profile = document.querySelector('.container_profile')
 const headerImg = document.querySelector('.chats__header__img')
 const chats = document.querySelector('.chats')
+const backButton = document.querySelector("#back");
 
 headerImg.onclick = () => {
     console.log('Se hizo click')
     change_profile.style.display = 'flex'
     chats.style.display = 'none'
+}
+
+backButton.onclick= () => {
+    console.log('Se hizo click al back')
+    change_profile.style.display = 'none'
+    chats.style.display = 'flex'
 }
