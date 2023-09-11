@@ -12,7 +12,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradiente(#009688 0%, #009688 130px, #d9dbd5 130px, #d9dbd5 100%);
+  background-image: url('https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg"');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 button {
@@ -35,13 +38,18 @@ button {
 
 .chats {
   width: 30%;
+  width: 30%;
+  border-radius: 0.938rem 0.938rem;
+  background-color: #ffffff;
 }
 .chats__header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #00A884;
+  padding: 0.625rem;
+  background-color: #c52233;
+  border-radius: 0.938rem 0.938rem 0 0;
+  color: #ffffff;
 }
 .chats__header__img {
   position: relative;
@@ -177,7 +185,7 @@ button {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  background: #f0f0f0;
+  background: #7e8287;
   text-align: left;
   align-self: flex-start;
 }
@@ -256,7 +264,7 @@ button {
 .login input {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #5e6166;
   border-radius: 4px;
   width: 100%;
 }
@@ -271,18 +279,62 @@ button {
 }
 .login button {
   margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #00A884;
-  border-radius: 4px;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  border-radius: 10px;
   width: 100%;
-  background-color: #00A884;
+  background: #111;
   color: #fff;
   font-weight: 500;
   cursor: pointer;
+  position: relative;
+  z-index: 0;
+  user-select: none;
+  touch-action: manipulation;
 }
-.login button:hover {
-  background-color: #009688;
-  border: 1px solid #009688;
+.login button:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.login button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+}
+.login button:hover:before {
+  opacity: 0.6;
+}
+.login button:hover:after {
+  opacity: 0.1;
 }
 
 a {
@@ -319,7 +371,7 @@ a {
 .signup-form__input {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #5e6166;
   border-radius: 4px;
   width: 100%;
 }
@@ -350,7 +402,7 @@ a {
 .signup-form__textarea {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #5e6166;
   border-radius: 4px;
   width: 100%;
 }
@@ -375,7 +427,7 @@ a {
 .message__change-profile-button {
   width: 50%;
   height: 60%;
-  background-color: #ccc;
+  background-color: #5e6166;
   color: #fff;
   font-weight: 500;
   cursor: pointer;
@@ -383,8 +435,8 @@ a {
   border: none;
 }
 .message__change-profile-button:hover {
-  background-color: #f0f0f0;
-  border: 1px solid #f0f0f0;
+  background-color: #7e8287;
+  border: 1px solid #7e8287;
   color: #fff;
   cursor: pointer;
 }
@@ -414,7 +466,7 @@ a {
 }
 
 .profile-edit-button {
-  background-color: #ccc;
+  background-color: #5e6166;
   color: #fff;
   border: none;
   padding: 10px 20px;
