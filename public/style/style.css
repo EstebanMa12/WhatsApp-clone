@@ -496,6 +496,12 @@ a {
   height: 1.875rem;
   width: 1.875rem;
 }
+.profile-info__phone img:nth-last-child(2) {
+  cursor: pointer;
+}
+.profile-info__phone form {
+  display: none;
+}
 .profile-info__email {
   display: flex;
   align-items: center;
@@ -518,6 +524,12 @@ a {
   height: 1.875rem;
   width: 1.875rem;
 }
+.profile-info__email img:nth-last-child(2) {
+  cursor: pointer;
+}
+.profile-info__email form {
+  display: none;
+}
 .profile-info__address {
   display: flex;
   align-items: center;
@@ -539,6 +551,12 @@ a {
 .profile-info__address img {
   height: 1.875rem;
   width: 1.875rem;
+}
+.profile-info__address img:nth-last-child(2) {
+  cursor: pointer;
+}
+.profile-info__address form {
+  display: none;
 }
 
 .profile__header {

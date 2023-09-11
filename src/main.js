@@ -1,7 +1,7 @@
 import '../public/style/style.css'
 import { decode } from './auth/privateCryptoServer'
 import doesUserExist from './db/server/DoesUserExist'
-// import 'font-awesome/css/font-awesome.css'
+
 
 console.log('HELLO FROM MAIN.JS')
 
