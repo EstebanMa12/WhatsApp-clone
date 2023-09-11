@@ -1,4 +1,6 @@
 const editButtons = document.querySelectorAll(".edit_button");
+const imageChange = document.querySelector(".message__change-profile-button")
+const imageInput =  document.querySelector("#imageInput")
 
 editButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -18,3 +20,17 @@ editButtons.forEach((button) => {
     }
   });
 });
+
+imageChange.addEventListener("click", (e) => {
+  imageInput.click();
+});
+
+imageInput.addEventListener("change", (e) => {
+  const selectedFile = e.target.files[0];
+
+  if (selectedFile){
+    const imageURL = URL.createObjectURL(selectedFile);
+
+    imageChange.style.backgroundImage = `url(${imageURL})`;
+  }
+})
