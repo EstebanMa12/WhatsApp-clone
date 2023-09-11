@@ -7,12 +7,18 @@
     margin: 0 auto
     padding: 20px
     width: 70%
+    background: var.$base_white
+    border-radius: 0.625rem 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
     &__header
         display: flex
         justify-content: space-between
         align-items: center
         margin-bottom: 20px
+        width: 100%
+        border: 1px solid black
+        border-radius: 0.625rem 0.625rem 0 0
+        height: auto
     &__user
         & img
             @include mixins.image-mixin(50px) 
