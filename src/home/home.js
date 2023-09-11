@@ -33,12 +33,12 @@ document.querySelector('.unregister-button').onclick = () => {
     window.location.href = '/'
 }
 
-const change_profile = document.querySelector('.container_profile')
+
 const headerImg = document.querySelector('.chats__header__img')
 const chats = document.querySelector('.chats')
 
 headerImg.onclick = () => {
     console.log('Se hizo click')
-    change_profile.style.display = 'flex'
+    root.innerHTML += HomeProfileTemplate
     chats.style.display = 'none'
 }
