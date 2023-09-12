@@ -11,16 +11,12 @@
     display: flex
     flex-flow: column
     &__header
-        display: flex
-        align-items: center
-        padding: 0.625rem
-        // background-color: var.$base_cardinal
         border-radius: 0.938rem 0.938rem 0 0
         color: var.$base_white
         &__img
-            margin: 0.625rem
-            width: 30%
-            height: 45%
+            margin-top: 0.625rem
+            width: 50%
+            height: auto
             border-radius: 10%
             cursor: pointer
             box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px
@@ -31,9 +27,18 @@
                 border: 2px solid var.$base_gray
                 cursor: pointer
         &__name
+            display: flex
+            flex-flow: column
+            align-items: center
+        & span
             font-size: 1.2em
-            font-weight: 600
-            color: #000
+            font-style: italic
+            font-weight: 500
+            color: #B65FCF
+            cursor: pointer
+            &:hover
+                text-decoration-line: underline
+                text-decoration-color: #B65FCF
         & h3
             width: 100%
             height: 100%
@@ -42,12 +47,9 @@
             font-weight: 600
             color: var.$base_white
             border-bottom: 2px solid transparent
-            &:hover
-                border-bottom-color: var.$base_cardinal_light
     &__container
         position: relative
         overflow-y: auto
-        background-color: rgba(255, 255, 255, 0.5)
         flex: 2
     &__user
         &-second

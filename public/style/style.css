@@ -32,7 +32,7 @@ button {
 }
 
 ::selection {
-  background-color: #009688;
+  background-color: palevioletred;
   color: white;
 }
 
@@ -55,16 +55,13 @@ button {
   flex-flow: column;
 }
 .chats__header {
-  display: flex;
-  align-items: center;
-  padding: 0.625rem;
   border-radius: 0.938rem 0.938rem 0 0;
   color: rgba(255, 255, 255, 0.5);
 }
 .chats__header__img {
-  margin: 0.625rem;
-  width: 30%;
-  height: 45%;
+  margin-top: 0.625rem;
+  width: 50%;
+  height: auto;
   border-radius: 10%;
   cursor: pointer;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
@@ -77,9 +74,20 @@ button {
   cursor: pointer;
 }
 .chats__header__name {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.chats__header span {
   font-size: 1.2em;
-  font-weight: 600;
-  color: #000;
+  font-style: italic;
+  font-weight: 500;
+  color: #B65FCF;
+  cursor: pointer;
+}
+.chats__header span:hover {
+  text-decoration-line: underline;
+  text-decoration-color: #B65FCF;
 }
 .chats__header h3 {
   width: 100%;
@@ -90,13 +98,9 @@ button {
   color: rgba(255, 255, 255, 0.5);
   border-bottom: 2px solid transparent;
 }
-.chats__header h3:hover {
-  border-bottom-color: #d23a47;
-}
 .chats__container {
   position: relative;
   overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.5);
   flex: 2;
 }
 .chats__user-second {
@@ -168,7 +172,7 @@ button {
 }
 .search__input input {
   width: 95%;
-  outline: none;
+  outline: noner;
   border: none;
   background-color: rgba(255, 255, 255, 0.5);
   height: 2.375rem;
@@ -179,6 +183,8 @@ button {
 }
 .search__input input:focus {
   background-color: white;
+  outline: solid #B65FCF;
+  outline-width: 2px;
 }
 
 .webchat {
@@ -197,9 +203,13 @@ button {
   align-items: center;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid black;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 0.625rem 0.625rem 0 0;
   height: auto;
+  transition: border-color 0.3s ease;
+}
+.webchat__header:hover {
+  border-color: white;
 }
 .webchat__user img {
   margin-left: 10px;
@@ -215,12 +225,16 @@ button {
 .webchat__messages {
   overflow-y: auto;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid rgba(244, 244, 244, 0.5);
   border-radius: 5px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   min-height: 70%;
+  transition: border-color 0.3s ease;
+}
+.webchat__messages:hover {
+  border-color: white;
 }
 .webchat__message-received {
   border: 1px solid #d23a47;
@@ -254,7 +268,6 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #ddd;
   border-radius: 5px;
 }
 .webchat__message-input button {
@@ -279,6 +292,10 @@ button {
 }
 .webchat__message-input input:focus {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggeableJSHover {
+  border-color: white;
 }
 
 @media (min-width: 100px) {
