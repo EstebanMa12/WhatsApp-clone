@@ -69,7 +69,7 @@ button {
   border: 2px solid transparent;
 }
 .chats__header__img:hover {
-  background-color: #d23a47;
+  background-color: #ff6a76;
   border: 2px solid #7e8287;
   cursor: pointer;
 }
@@ -249,7 +249,7 @@ button {
   border-color: white;
 }
 .webchat__message-received {
-  border: 1px solid #d23a47;
+  border: 1px solid #ff6a76;
   max-width: 50%;
   min-width: 40%;
   word-wrap: break-word;
@@ -267,7 +267,7 @@ button {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  background: #d23a47;
+  background: #ff6a76;
   text-align: right;
   align-self: flex-end;
   color: #fff;

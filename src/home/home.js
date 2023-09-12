@@ -73,3 +73,4 @@ userMessageInput.onblur = () => {
 const headerImg = document.querySelector('.chats__header__img')
 
 headerImg.onclick = () => setVisibile(true)
+import('../chats/chats')
