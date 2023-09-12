@@ -5,7 +5,7 @@
         <legend>
             <h1 class="home-modal__title">Profile</h1>
         </legend>
-        <div class="avatar-upload">
+        <!-- <div class="avatar-upload">
             <div class="avatar-edit">
                 <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
                 <label for="imageUpload">
@@ -15,9 +15,9 @@
                 <div id="imagePreview" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqsb6lK-PlD1kHFoubbiC-jN21tqj9ADz9crJ2rBIstz1gKFPE&usqp=CAU);">
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <!-- <div
+        <div
             class="drop-zone"
             id="drop-zone">
             <label for="file-input">
@@ -28,7 +28,7 @@
                 type="file"
                 id="file-input"
                 accept="image/*, .png, .jpg, .jpeg" />
-        </div> -->
+        </div>
 
         <label
             class="home-modal-form__label"
@@ -119,19 +119,44 @@
     //         dropZone.appendChild(img) // Display the uploaded image
     //     }
     // }
-    function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('.avatar-preview').css('background-image', 'url('+e.target.result +')');
-            $('.avatar-preview').hide();
-            $('.avatar-preview').fadeIn(650);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-$("#imageUpload").change(function() {
-    readURL(this);
-});
+    $(document).ready(function() {
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#drop-zone').css('background-image', 'url(' + e.target.result + ')');
+                        $('#drop-zone').css('background-size', 'cover');
+                        $('#drop-zone').css('background-position', 'center');
+                        $('#drop-zone').css('background-repeat', 'no-repeat');
+                        $('#drop-zone').hide()
+                        $('#drop-zone').fadeIn(650)
+                        $('.label-drop-zone').css('display', 'none')
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#file-input").change(function() {
+                readURL(this);
+            });
+
+            // Evitar que el navegador abra la imagen cuando se arrastra y suelta
+            $('#drop-zone').on('dragover', function(e) {
+                e.preventDefault();
+                $(this).addClass('dragover');
+            });
+
+            $('#drop-zone').on('dragleave', function(e) {
+                e.preventDefault();
+                $(this).removeClass('dragover');
+            });
+
+            $('#drop-zone').on('drop', function(e) {
+                e.preventDefault();
+                $(this).removeClass('dragover');
+                var file = e.originalEvent.dataTransfer.files[0];
+                $('#file-input')[0].files = e.originalEvent.dataTransfer.files;
+                readURL(file);
+            });
+        });
 
 </script>
