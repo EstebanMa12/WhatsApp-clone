@@ -38,36 +38,6 @@ if (devENV) {
     }
 } else unregisterButton.style.display = 'none'
 
-// active effect on webchat section when focusing chat
-const userMessageInput = document.querySelector('#userMessage')
-const webchatMessages = document.querySelector('.webchat__messages')
-const webchatHeader = document.querySelector('.webchat__header')
-const webchatComponents = [webchatHeader, webchatMessages]
-
-webchatComponents.forEach(
-    component =>
-        (component.onmouseover = function () {
-            this.style.borderColor = 'white'
-        })
-)
-
-webchatComponents.forEach(
-    component =>
-        (component.onmouseleave = function () {
-            this.style.borderColor = 'rgb(244, 244, 244, 0.5)'
-        })
-)
-
-userMessageInput.onfocus = () => {
-    webchatComponents.forEach(
-        component => (component.style.borderColor = 'white')
-    )
-}
-userMessageInput.onblur = () => {
-    webchatComponents.forEach(
-        component => (component.style.borderColor = 'rgb(244, 244, 244, 0.5)')
-    )
-}
 
 // Toggle profile module when clicking image profile/avatar
 const headerImg = document.querySelector('.chats__header__img')
