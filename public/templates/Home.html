@@ -86,12 +86,18 @@
             id="userMessage" 
             type="text"
             placeholder="Type your message...">
-            <button class="send-button"
-            onclick="sendMessage()">Send</button>
+            <button class="send-button">Send</button>
         </div>
     </article>
 </div>
 <script>
+    const submitButton = document.querySelector('.send-button')
+
+    submitButton.addEventListener('click', (e)=>{
+        console.log("Tryng to send a message")
+        e.preventDefault()
+        sendMessage()
+    })
     function getCurrentTime() {
         const now = new Date();
         const hours = now.getHours().toString().padStart(2, '0');
