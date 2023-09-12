@@ -38,9 +38,8 @@ if (devENV) {
     }
 } else unregisterButton.style.display = 'none'
 
-
 // Toggle profile module when clicking image profile/avatar
 const headerImg = document.querySelector('.chats__header__img')
 
 headerImg.onclick = () => setVisibile(true)
-import('../chats/chats')
+import('../chats/socket')

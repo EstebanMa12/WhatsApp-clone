@@ -1,22 +1,38 @@
+import './events'
+import { validateStoredSession } from '../main'
 const socket = io('https://live-chat-server.up.railway.app')
 const messagesContainer = document.querySelector('.webchat__messages')
 const messageForm = document.querySelector('.webchat__message-input')
 const messageInput = document.querySelector('#userMessage')
-const submitButton = document.querySelector('.send-button')
+
+//* get session from sessionStorage, if any
+const storedSession = sessionStorage.getItem('makaiapp_session')
+const thisUser = await validateStoredSession(storedSession)
 
 messageForm.addEventListener('submit', e => {
     e.preventDefault()
     const message = messageInput.value
     sendMessage(message)
     socket.emit('send-chat-message', message)
+    socket.emit('wpp-session-on')
     messagesContainer.scrollTop = messagesContainer.scrollHeight
-    message.value = ''
+    messageInput.value = ''
 })
 
-const Name = prompt('What is your name?')
-sendMessage('You joined')
-socket.emit('new-user', Name)
+socket.emit('new-user', thisUser.id)
+socket.emit('wpp-session-on', thisUser.id)
 
+socket.on('wpp-contact-on', whoIsConnected => {
+    console.log('Your contact got connected')
+})
+
+socket.on('wpp-message', (message, receptorPhoneNumber) => {
+    if (receptorPhoneNumber != thisUser.id) return
+
+    sendMessage('A message for you: ' + message)
+})
+
+// GLOBAL CHAT SOCKET [BEGINNING]
 socket.on('chat-message', data => {
     sendMessage(`${data.name}: ${data.message}`)
     messagesContainer.scrollTop = messagesContainer.scrollHeight
@@ -24,6 +40,7 @@ socket.on('chat-message', data => {
 
 socket.on('user-connected', name => {
     sendMessage(`${name} connected`)
+    console.log(name, 'XD WHY MINE DOESNT WORK')
     messagesContainer.scrollTop = messagesContainer.scrollHeight
 })
 
@@ -31,6 +48,7 @@ socket.on('user-disconnected', name => {
     sendMessage(`${name} disconnected`)
     messagesContainer.scrollTop = messagesContainer.scrollHeight
 })
+// GLOBAL CHAT SOCKET [ENDING]
 
 function getCurrentTime() {
     const now = new Date()
@@ -49,33 +67,4 @@ function sendMessage(userMessage) {
     messageSent.className = 'webchat__message-sent'
     messageSent.innerHTML = `<p>${userMessage}</p><span class="webchat__time">${getCurrentTime()}</span>`
     messagesContainer.appendChild(messageSent)
-}
-
-// active effect on webchat section when focusing chat
-const webchatMessages = document.querySelector('.webchat__messages')
-const webchatHeader = document.querySelector('.webchat__header')
-const webchatComponents = [webchatHeader, webchatMessages]
-
-webchatComponents.forEach(
-    component =>
-        (component.onmouseover = function () {
-            this.style.borderColor = 'white'
-        })
-)
-webchatComponents.forEach(
-    component =>
-        (component.onmouseleave = function () {
-            this.style.borderColor = 'rgb(244, 244, 244, 0.5)'
-        })
-)
-
-messageInput.onfocus = () => {
-    webchatComponents.forEach(
-        component => (component.style.borderColor = 'white')
-    )
-}
-messageInput.onblur = () => {
-    webchatComponents.forEach(
-        component => (component.style.borderColor = 'rgb(244, 244, 244, 0.5)')
-    )
 }

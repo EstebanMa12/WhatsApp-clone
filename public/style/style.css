@@ -31,6 +31,10 @@ button {
   cursor: pointer;
 }
 
+.activeChat {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
 ::selection {
   background-color: palevioletred;
   color: white;
@@ -66,11 +70,10 @@ button {
   cursor: pointer;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   transition: background-color 0.3s ease;
-  border: 2px solid transparent;
+  border: 3px solid rgba(36, 219, 0, 0.5);
 }
 .chats__header__img:hover {
-  background-color: #ff6a76;
-  border: 2px solid #7e8287;
+  border: 3px solid rgb(81, 255, 6);
   cursor: pointer;
 }
 .chats__header__name {
@@ -249,7 +252,6 @@ button {
   border-color: white;
 }
 .webchat__message-received {
-  border: 1px solid #ff6a76;
   max-width: 50%;
   min-width: 40%;
   word-wrap: break-word;
