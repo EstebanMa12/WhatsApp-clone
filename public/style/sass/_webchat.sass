@@ -31,15 +31,18 @@
         border: 1px solid #ccc
         border-radius: 5px
         margin-bottom: 20px
+        display: flex
+        flex-direction: column
     &__message
         &-received
-            @include mixins.message-mixin(var.$base_gray,left, flex-start)
+            border: 1px solid var.$base_cardinal_light
+            @include mixins.message-mixin(var.$base_gray_light,left, flex-start)
         &-sent
-            @include mixins.message-mixin(var.$base_green, right, flex-end)
+            @include mixins.message-mixin(var.$base_cardinal_light, right, flex-end)
             color: #fff
     &__time
         font-size: 12px
-        color: #888
+        color: var.$base_raisin_black
     &__message-input
         display: flex
         justify-content: space-between
@@ -47,7 +50,7 @@
         border-top: 1px solid #ddd
         border-radius: 5px
         & button
-            background: var.$base_green
+            background: var.$base_purpureus
             color: #fff
             border: none
             padding: 10px 20px
@@ -55,7 +58,7 @@
             cursor: pointer
             outline: none
             &:hover
-                background: var.$base_green_dark
+                background: var.$base_purpureus_dark
 
         & input
             flex: 1

@@ -209,31 +209,36 @@ button {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .webchat__message-received {
+  border: 1px solid #d23a47;
   max-width: 50%;
+  min-width: 40%;
   word-wrap: break-word;
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  background: #7e8287;
+  background: #f5f5f5;
   text-align: left;
   align-self: flex-start;
 }
 .webchat__message-sent {
   max-width: 50%;
+  min-width: 40%;
   word-wrap: break-word;
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  background: #00A884;
+  background: #d23a47;
   text-align: right;
   align-self: flex-end;
   color: #fff;
 }
 .webchat__time {
   font-size: 12px;
-  color: #888;
+  color: #201e1f;
 }
 .webchat__message-input {
   display: flex;
@@ -243,7 +248,7 @@ button {
   border-radius: 5px;
 }
 .webchat__message-input button {
-  background: #00A884;
+  background: #9d44b5;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -252,7 +257,7 @@ button {
   outline: none;
 }
 .webchat__message-input button:hover {
-  background: #009688;
+  background: #7d3a9e;
 }
 .webchat__message-input input {
   flex: 1;
