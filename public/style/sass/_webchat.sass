@@ -15,14 +15,19 @@
         justify-content: space-between
         align-items: center
         margin-bottom: 20px
+        flex: 1
         width: 100%
+        height: 100%
         border: 2px solid rgb(255, 255, 255, 0.5)
-        border-radius: 0.625rem 0.625rem 0 0
-        height: auto
+        border-radius: 0.625rem 0.625rem 0.325rem 0.325rem
         transition: border-color 0.3s ease
         &:hover
             border-color: white
     &__user
+        color: #B65FCF
+        gap: 10px
+        display: flex
+        padding: 10px
         & img
             margin-left: 10px
             @include mixins.image-mixin(50px,58px)
@@ -34,7 +39,7 @@
         margin-bottom: 20px
         display: flex
         flex-direction: column
-        min-height: 70%
+        flex: 10
         transition: border-color 0.3s ease
         &:hover
             border-color: white
@@ -53,6 +58,7 @@
         justify-content: space-between
         align-items: center
         border-radius: 5px
+        flex: 1
         & button
             background: var.$base_purpureus
             color: #fff
@@ -71,15 +77,14 @@
             outline: none
             border-radius: 5px
             margin-right: 10px
+            width: 100%
             &:focus
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
 
 .toggeableJSHover
     border-color: white
 
-@media (min-width: 100px)
+@media (min-width: 768px)
     .webchat
-        display: inline
-// @media (min-width: 1200px)
-//     .webchat
-//         display: inline
+        display: flex
+        flex-flow: column

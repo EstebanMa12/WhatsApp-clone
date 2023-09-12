@@ -2,21 +2,27 @@
     &__container
         position: relative
         width: 100%
+        height: 100%
+        flex: 1
         display: flex
         align-items: center
     &__input
         width: 100%
         height: 100%
         background-color: rgba(225, 225, 225, 0.5)
+        // padding: 0.325rem
+        display: flex
+        justify-content: center
         & input
             width: 95%
-            outline: noner
+            outline: none
             border: none
             background-color: rgba(255, 255, 255, 0.5)
             height: 2.375rem
             border-radius: 0.625rem
+            overflow: none
             font-size: 0.813rem
-            padding-left: 3.75rem
+            padding-left: 10%
             margin: 0.625rem
             &:focus
                 background-color: white

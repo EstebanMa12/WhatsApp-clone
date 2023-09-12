@@ -101,7 +101,7 @@ button {
 .chats__container {
   position: relative;
   overflow-y: auto;
-  flex: 2;
+  flex: 10;
 }
 .chats__user-second {
   position: relative;
@@ -162,6 +162,8 @@ button {
 .search__container {
   position: relative;
   width: 100%;
+  height: 100%;
+  flex: 1;
   display: flex;
   align-items: center;
 }
@@ -169,16 +171,19 @@ button {
   width: 100%;
   height: 100%;
   background-color: rgba(225, 225, 225, 0.5);
+  display: flex;
+  justify-content: center;
 }
 .search__input input {
   width: 95%;
-  outline: noner;
+  outline: none;
   border: none;
   background-color: rgba(255, 255, 255, 0.5);
   height: 2.375rem;
   border-radius: 0.625rem;
+  overflow: none;
   font-size: 0.813rem;
-  padding-left: 3.75rem;
+  padding-left: 10%;
   margin: 0.625rem;
 }
 .search__input input:focus {
@@ -202,14 +207,21 @@ button {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  flex: 1;
   width: 100%;
+  height: 100%;
   border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0.625rem 0.625rem 0 0;
-  height: auto;
+  border-radius: 0.625rem 0.625rem 0.325rem 0.325rem;
   transition: border-color 0.3s ease;
 }
 .webchat__header:hover {
   border-color: white;
+}
+.webchat__user {
+  color: #B65FCF;
+  gap: 10px;
+  display: flex;
+  padding: 10px;
 }
 .webchat__user img {
   margin-left: 10px;
@@ -230,7 +242,7 @@ button {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  min-height: 70%;
+  flex: 10;
   transition: border-color 0.3s ease;
 }
 .webchat__messages:hover {
@@ -269,6 +281,7 @@ button {
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
+  flex: 1;
 }
 .webchat__message-input button {
   background: #9d44b5;
@@ -289,6 +302,7 @@ button {
   outline: none;
   border-radius: 5px;
   margin-right: 10px;
+  width: 100%;
 }
 .webchat__message-input input:focus {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -298,9 +312,10 @@ button {
   border-color: white;
 }
 
-@media (min-width: 100px) {
+@media (min-width: 768px) {
   .webchat {
-    display: inline;
+    display: flex;
+    flex-flow: column;
   }
 }
 .login {
