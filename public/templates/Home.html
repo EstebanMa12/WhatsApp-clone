@@ -27,31 +27,35 @@
         <!-- header start -->
         <header class="chats__header">
             <div class="chats__header__name">
-                <span>Makaia-App</span>
+                <img
+                    class="chats__header__img"
+                    src="https://images.healthshots.com/healthshots/en/uploads/2020/12/08182549/positive-person.jpg"
+                    alt="Header img" />
+                <span>user_name</span>
             </div>
-            <img class="chats__header__img" src="https://images.healthshots.com/healthshots/en/uploads/2020/12/08182549/positive-person.jpg" alt="Header img">
-            <h3>Chats</h3>
         </header>
         <!-- header finish -->
         <!-- Search container -->
         <div class="search__container">
             <div class="search__input">
-                <input type="text" placeholder="Search or start new chat">
+                <input
+                    type="text"
+                    placeholder="Search or start new chat" />
             </div>
         </div>
 
         <!-- chats -->
         <div class="chats__container">
             <div class="chats__user-second">
-                <div class="chats__user__image" >
-                    <img src="https://w7.pngwing.com/pngs/314/994/png-transparent-person-confused-miscellaneous-tshirt-cartoon-thumbnail.png" alt="">
+                <div class="chats__user__image">
+                    <img
+                        src="https://w7.pngwing.com/pngs/314/994/png-transparent-person-confused-miscellaneous-tshirt-cartoon-thumbnail.png"
+                        alt="" />
                 </div>
                 <div class="chats__details">
                     <div class="chats__details__username">
                         <h4>Pepito Perez</h4>
-                        <p class="chats__details__timeUnread">
-                            4:29
-                        </p>
+                        <p class="chats__details__timeUnread">4:29</p>
                     </div>
                     <div class="chats__details__textMessage">
                         <p>How are you?</p>
@@ -65,7 +69,9 @@
     <article class="webchat">
         <header class="webchat__header">
             <div class="webchat__user">
-                <img src="https://w7.pngwing.com/pngs/314/994/png-transparent-person-confused-miscellaneous-tshirt-cartoon-thumbnail.png" alt="User Image">
+                <img
+                    src="https://w7.pngwing.com/pngs/314/994/png-transparent-person-confused-miscellaneous-tshirt-cartoon-thumbnail.png"
+                    alt="User Image" />
                 <h2>Pepito Perez</h2>
             </div>
             <button class="unregister-button">UN-REGISTER</button>
@@ -83,9 +89,9 @@
         </div>
         <div class="webchat__message-input">
             <input
-            id="userMessage" 
-            type="text"
-            placeholder="Type your message...">
+                id="userMessage"
+                type="text"
+                placeholder="Type your message..." />
             <button class="send-button">Send</button>
         </div>
     </article>
@@ -93,33 +99,31 @@
 <script>
     const submitButton = document.querySelector('.send-button')
 
-    submitButton.addEventListener('click', (e)=>{
-        console.log("Tryng to send a message")
+    submitButton.addEventListener('click', e => {
+        console.log('Tryng to send a message')
         e.preventDefault()
         sendMessage()
     })
     function getCurrentTime() {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        return hours + ':' + minutes;
+        const now = new Date()
+        const hours = now.getHours().toString().padStart(2, '0')
+        const minutes = now.getMinutes().toString().padStart(2, '0')
+        return hours + ':' + minutes
     }
 
     function sendMessage() {
-        const userMessage = document.getElementById('userMessage').value;
+        const userMessage = document.getElementById('userMessage').value
         if (userMessage.trim() === '') {
-            return;
+            return
         }
 
-        const chatMessages = document.getElementById('chatMessages');
-        const messageSent = document.createElement('div');
-        messageSent.className = 'webchat__message-sent';
-        messageSent.innerHTML = `<p>${userMessage}</p><span class="webchat__time">${getCurrentTime()}</span>`;
-        chatMessages.appendChild(messageSent);
+        const chatMessages = document.getElementById('chatMessages')
+        const messageSent = document.createElement('div')
+        messageSent.className = 'webchat__message-sent'
+        messageSent.innerHTML = `<p>${userMessage}</p><span class="webchat__time">${getCurrentTime()}</span>`
+        chatMessages.appendChild(messageSent)
 
         // Clear the input field
-        document.getElementById('userMessage').value = '';
+        document.getElementById('userMessage').value = ''
     }
 </script>
-
-
