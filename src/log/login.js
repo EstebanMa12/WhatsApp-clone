@@ -3,8 +3,6 @@ import queryDBToAuthenticate from '../db/server/RegisterUser'
 import authPhoneWithSMSThroughFirebase from '../auth/firebaseSMSAuth'
 import { encode } from '../auth/privateCryptoServer'
 
-console.log('HELLO FROM LOGIN.JS')
-
 root.innerHTML = LoginTemplate
 const phoneNumberInput = document.querySelector('input')
 const connectButton = document.querySelector('button')
@@ -27,7 +25,7 @@ async function handleConnectionAttempt(event) {
 
     // if user not verified,
     // if user have not generated a SMS Firebase code, generate itfirebase
-    if (!(await User.code?.date)) return //authPhoneWithSMSThroughFirebase(phoneNumber)
+    if (!(await User.code?.date)) return //authPh573137054945oneWithSMSThroughFirebase(phoneNumber)
 
     // if user already generated a code in db, test it
     const userCodeDate = await User.code.date

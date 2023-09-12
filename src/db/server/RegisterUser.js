@@ -16,6 +16,7 @@ async function queryDBToAuthenticate(phoneNumber) {
             },
             verified: false,
             trusted_devices: [],
+            contacts: [],
             profile: {
                 name: null,
                 tag: null,

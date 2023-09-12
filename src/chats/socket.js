@@ -1,4 +1,5 @@
 import './events'
+import './contactsList'
 import { validateStoredSession } from '../main'
 const socket = io('https://live-chat-server.up.railway.app')
 const messagesContainer = document.querySelector('.webchat__messages')
