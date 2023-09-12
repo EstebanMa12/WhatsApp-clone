@@ -22,11 +22,6 @@ export async function fillOutProfile(phoneNumber) {
         window.addEventListener('keydown', clallIfEscPress)
     }
 
-    function setVisibile(visible) {
-        const display = visible ? 'block' : 'none'
-        document.querySelector('.welcome').style.display = display
-    }
-
     function setInertBehindModal(inert) {
         const element = document.querySelector('body')
         element.inert = inert
@@ -42,4 +37,9 @@ export async function fillOutProfile(phoneNumber) {
     const submitButton = document.querySelector('.home-modal__button--letsgo')
     const overlay = document.querySelector('.welcome')
     attachEventListener(submitButton, overlay)
+}
+
+export function setVisibile(visible) {
+    const display = visible ? 'block' : 'none'
+    document.querySelector('.welcome').style.display = display
 }

@@ -11,11 +11,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   background-image: url('https://colorlib.com/etc/lf/Login_v4/images/bg-01.jpg"');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  place-content: center;
+  align-items: center;
 }
 
 button {
@@ -29,28 +38,28 @@ button {
 
 .main__container {
   position: relative;
-  min-width: 120vh;
-  max-width: 100%;
-  height: calc(100vh - 40px);
   display: flex;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
 }
 
 .chats {
   width: 30%;
+  height: 100%;
   position: relative;
   border-radius: 0.938rem 0.938rem;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-flow: column;
 }
 .chats__header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 0.625rem;
-  background-color: #c52233;
   border-radius: 0.938rem 0.938rem 0 0;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.5);
 }
 .chats__header__img {
   margin: 0.625rem;
@@ -78,20 +87,19 @@ button {
   text-align: center;
   margin-top: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.5);
   border-bottom: 2px solid transparent;
 }
 .chats__header h3:hover {
   border-bottom-color: #d23a47;
 }
 .chats__container {
-  /* border: 2px solid red  */
   position: relative;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  flex: 2;
 }
 .chats__user-second {
-  /* border: 3px solid green */
   position: relative;
   width: 100%;
   display: flex;
@@ -140,7 +148,6 @@ button {
   min-width: 20px;
   height: 20px;
   border-radius: 50%;
-  /*   text-align: center; */
   font-size: 0.9em;
   font-weight: 400;
   display: flex;
@@ -151,26 +158,27 @@ button {
 .search__container {
   position: relative;
   width: 100%;
-  height: 3.75rem;
-  background: #f6f6f6;
   display: flex;
   align-items: center;
 }
-
 .search__input {
   width: 100%;
   height: 100%;
+  background-color: rgba(225, 225, 225, 0.5);
 }
 .search__input input {
   width: 95%;
   outline: none;
   border: none;
-  background: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   height: 2.375rem;
   border-radius: 0.625rem;
   font-size: 0.813rem;
   padding-left: 3.75rem;
   margin: 0.625rem;
+}
+.search__input input:focus {
+  background-color: white;
 }
 
 .webchat {
@@ -178,7 +186,8 @@ button {
   margin: 0 auto;
   padding: 20px;
   width: 70%;
-  background: #ffffff;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 0.625rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -211,6 +220,7 @@ button {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+  min-height: 70%;
 }
 .webchat__message-received {
   border: 1px solid #d23a47;
@@ -271,7 +281,7 @@ button {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 100px) {
   .webchat {
     display: inline;
   }
@@ -483,6 +493,7 @@ a {
   height: min-content;
   position: relative;
   display: flex;
+  width: 50%;
   flex-flow: column;
   border: 2px solid;
   border-color: black;
@@ -517,13 +528,14 @@ a {
   }
 }
 .home-modal__trust:hover {
-  border-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 .home-modal__welcome {
   background-image: linear-gradient(to bottom right, #add2d6, #9d44b5);
   height: min-content;
   position: relative;
   display: flex;
+  width: 50%;
   flex-flow: column;
   border: 2px solid;
   border-color: black;
@@ -558,7 +570,7 @@ a {
   }
 }
 .home-modal__welcome:hover {
-  border-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 .home-modal__welcome:before {
   content: "";
@@ -586,7 +598,7 @@ a {
     background-position: 0 0;
   }
 }
-.home-modal__welcome:after {
+.home-modal__welcome:before:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -597,10 +609,10 @@ a {
   left: 0;
   border-radius: 10px;
 }
-.home-modal__welcome:hover:before {
+.home-modal__welcome:before:hover:before {
   opacity: 0.6;
 }
-.home-modal__welcome:hover:after {
+.home-modal__welcome:before:hover:after {
   opacity: 0.1;
 }
 .home-modal__title {
@@ -696,7 +708,7 @@ fieldset {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid transparent;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
   cursor: pointer;

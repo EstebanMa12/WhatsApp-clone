@@ -2,8 +2,6 @@ import '../public/style/style.css'
 import { decode } from './auth/privateCryptoServer'
 import doesUserExist from './db/server/DoesUserExist'
 
-console.log('HELLO FROM MAIN.JS')
-
 export async function validateStoredSession(session) {
     return await doesUserExist(await decode(session))
 }
