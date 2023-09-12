@@ -1,12 +1,14 @@
 @use 'variables' as var
 
-@mixin image-mixin($size)
+@mixin image-mixin($size1,$size2)
     position: relative
-    width: $size
-    height: $size
+    width: $size1
+    height: $size2
     overflow: hidden
     border-radius: 50%
     cursor: pointer
+    display: flex
+    justify-content: center
 
 @mixin message-mixin($color,$orientation,$align)
     max-width: 50%
