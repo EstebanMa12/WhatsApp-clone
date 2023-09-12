@@ -70,10 +70,63 @@ fieldset
     background-image: linear-gradient(to bottom right, #add2d6, #3382b7)
     padding: 20px /* Add padding for better visual separation */
 
+.avatar
+    &-upload
+        position: relative
+        max-width: 205px
+        margin: 50px auto
+    &-edit
+        position: absolute
+        right: 12px
+        z-index: 1
+        top: 10px
+        & input
+            display: none
+        & label
+            display: inline-block
+            width: 34px
+            height: 34px
+            border-radius: 50%
+            background-color: var.$base_white
+            border: 1px solid transparent
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12)
+            cursor: pointer
+            font-weight: normal
+            transition: all 0.3s ease-in-out
+            &:hover 
+                background-color: var.$base_gray_light
+                border: 1px solid var.$base_cardinal_light
+            &:after
+                content: "\f040"
+                font-family: 'FontAwesome'
+                color: #3498db
+                position: absolute
+                top: 10px
+                left: 0
+                right: 0
+                text-align: center
+                margin: auto
+    &-preview
+        width: 198px
+        height: 198px
+        position: relative
+        border-radius: 100%
+        border: 2px dashed #3498db
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1)
+        & div
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            border-radius: 100%
+            background-color: blue
+            background-size: cover
+            background-position: center
+            background-repeat: no-repeat
 .drop-zone
     width: 200px
     height: 200px
-    border: 2px dashed #3498db
+    border: 1px dashed #3498db
     border-radius: 50%
     display: flex
     justify-content: center
