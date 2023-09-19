@@ -8,19 +8,18 @@
     flex-direction: column
     &__container
         // border: 1px solid black
-        background-color: #fff
-        border-radius: 8px
+        background-color: rgba(255, 255, 255, 0.753)
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2)
+        border-radius: 10px
         padding: 20px
         width: 300px
 
-    
     & h2
         text-align: center
         margin-bottom: 20px
-        font-size: 20px
-        font-weight: 500
-        color: var.$base_red
+        font-size: 40px
+        font-weight: 800
+        color: #cf40ff
     & label
         margin-top: 10px
     & input
@@ -29,13 +28,19 @@
         border: 1px solid var.$base_gray_dark
         border-radius: 4px
         width: 100%
+        background-color: transparent
         &[type="number"]
             -moz-appearance: textfield
             -webkit-appearance: textfield
             margin: 0
+        &:hover
+            background-color: #ffffff7d
+            border: 1px solid green
         &:focus
             outline: none
+            background-color: #ffffff
             border: 1px solid var.$base_green
+
     & button
         margin-top: 10px
         padding: 0.6em 2em
@@ -53,7 +58,7 @@
         touch-action: manipulation
         &:before
             content: ''
-            background: linear-gradient(45deg,#ff0000,            #ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,#ff0000)
+            background: linear-gradient(45deg,#ff0000, #ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,#ff0000)
             position: absolute
             top: -2px
             left: -2px
@@ -65,7 +70,7 @@
             animation: glowing 20s linear infinite
             transition: opacity 0.3s ease-in-out
             border-radius: 10px
-        @keyframes glowing 
+        @keyframes glowing
             0%
                 background-position: 0 0
             50%

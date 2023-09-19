@@ -6,6 +6,7 @@ import {
     RecaptchaVerifier,
 } from 'firebase/auth'
 import verifyUser from '../db/server/verifyUser'
+import { saveSMSToDB } from '../db/server/SaveSMSToDB'
 
 function authPhoneWithSMSThroughFirebase(phoneNumber) {
     root.innerHTML = SignUpTemplate
@@ -31,7 +32,7 @@ function authPhoneWithSMSThroughFirebase(phoneNumber) {
         size: 'invisible',
         callback: response => {
             // onSignInSubmit()
-            console.log('CAPTCHA WORKED?')
+            console.log('SMS SENT')
             console.log(response)
         },
     })
@@ -63,8 +64,8 @@ function authPhoneWithSMSThroughFirebase(phoneNumber) {
                         console.log('[USER VERIFIED]', user)
                         phoneNumber = phoneNumber.replace(/[^0-9+]/g, '')
 
-                        await SaveSMSToDB(phoneNumber, code)
-                        await verifyUser(phoneNumber)
+                        await saveSMSToDB(phoneNumber, code)
+                        return await verifyUser(phoneNumber)
                     })
                     .catch(() => {
                         const input = document.querySelector('input')

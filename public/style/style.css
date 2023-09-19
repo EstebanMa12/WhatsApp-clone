@@ -334,18 +334,18 @@ button {
   flex-direction: column;
 }
 .login__container {
-  background-color: #fff;
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.753);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   padding: 20px;
   width: 300px;
 }
 .login h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #ff0000;
+  font-size: 40px;
+  font-weight: 800;
+  color: #cf40ff;
 }
 .login label {
   margin-top: 10px;
@@ -356,14 +356,20 @@ button {
   border: 1px solid #5e6166;
   border-radius: 4px;
   width: 100%;
+  background-color: transparent;
 }
 .login input[type=number] {
   -moz-appearance: textfield;
   -webkit-appearance: textfield;
   margin: 0;
 }
+.login input:hover {
+  background-color: rgba(255, 255, 255, 0.4901960784);
+  border: 1px solid green;
+}
 .login input:focus {
   outline: none;
+  background-color: #ffffff;
   border: 1px solid #00A884;
 }
 .login button {
